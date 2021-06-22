@@ -28,10 +28,10 @@ Please download & install:
 - Type "y" to approve
 - Close PowerShell
 
-## 2. Enable VSCode CLI
+## 2. Enable VSCode CLI (MacOS only)
 
 - Open VSCode.
-- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac).
+- Press `Cmd+Shift+P`
 - Type "PATH"
 - Select: `Shell command: Install 'code' command in PATH`
 - Close VSCode

@@ -28,10 +28,10 @@
 - พิมพ์ "y" เพื่ออนุมัติ
 - ปิด PowerShell
 
-## 2. เปิดใช้งาน VSCode CLI
+## 2. เปิดใช้งาน VSCode CLI (MacOS เท่านั้น)
 
 - เปิด VSCode
-- กด `Ctrl+Shift+P` (หรือ `Cmd+Shift+P` บน Mac)
+- กด `Cmd+Shift+P`
 - พิมพ์ "PATH"
 - เลือก: `Shell command: Install 'code' command in PATH`
 - ปิด VSCode
