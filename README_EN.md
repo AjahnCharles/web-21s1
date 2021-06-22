@@ -40,6 +40,7 @@ Please download & install:
 
 - Re-open VSCode (you really must close it!)
 - Press `Ctrl+J` to show the terminal
+- Make sure that you are using `cmd`, not `powershell`
 - Execute this command  
   ...this is all one-line! (please copy/paste; don't type it)
   ```sh
