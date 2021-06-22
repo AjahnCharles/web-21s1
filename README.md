@@ -1,58 +1,65 @@
 # Web Servers & Services (231370-21s1)
 
-Welcome to the best Web Development course at BEC :D  
-Please follow the instructions below to setup your PC.
+ยินดีต้อนรับสู่หลักสูตรการพัฒนาเว็บที่ดีที่สุดที่ BEC :D  
+โปรดปฏิบัติตามคำแนะนำด้านล่างเพื่อตั้งค่าพีซีของคุณ
 
-# 🚨 Warning
+# 🚨 คำเตือน
 
-**If you see red error text, stop!** You must read error messages & solve any problems before continuing. The following steps **will not work** if previous commands failed.
+**หากคุณเห็นข้อความแสดงข้อผิดพลาดสีแดง ให้หยุด!** คุณต้องอ่านข้อความแสดงข้อผิดพลาดและแก้ไขปัญหาก่อนดำเนินการต่อ ขั้นตอนต่อไปนี้**จะไม่ทำงาน**หากคำสั่งก่อนหน้านี้ล้มเหลว
 
-# 💻 Install Apps
+# 💻 ติดตั้งแอพ
 
-Please download & install:
+กรุณาดาวน์โหลดและติดตั้ง:
 
 - [NodeJS](https://nodejs.org/en/download/current/) - "Current" version
 - [Visual Studio Code](https://code.visualstudio.com/Download)
 - [GitHub Desktop](https://desktop.github.com/)
 - [VueJS Devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) - for Chrome/Edge
 
-# 🧘 Install CLI Tools
+# 🧘 ติดตั้งเครื่องมือ CLI
 
-## 1. Enable Scripts (Windows only)
+## 1. เปิดใช้งานสคริปต์ (Windows เท่านั้น)
 
-- Open `PowerShell` as an administrator
-- Type the following command:
+- เปิด `PowerShell` เป็น administrator
+- พิมพ์คำสั่งต่อไปนี้:
   ```sh
   Set-ExecutionPolicy RemoteSigned
   ```
-- Type "y" to approve
-- Close PowerShell
+- พิมพ์ "y" เพื่ออนุมัติ
+- ปิด PowerShell
 
-## 2. Enable VSCode CLI
+## 2. เปิดใช้งาน VSCode CLI
 
-- Open VSCode.
-- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac).
-- Type "PATH"
-- Select: `Shell command: Install 'code' command in PATH`
-- Close VSCode
+- เปิด VSCode
+- กด `Ctrl+Shift+P` (หรือ `Cmd+Shift+P` บน Mac)
+- พิมพ์ "PATH"
+- เลือก: `Shell command: Install 'code' command in PATH`
+- ปิด VSCode
 
-## 3. Install VSCode Extensions
+## 3. ติดตั้งส่วนขยาย VSCode
 
-- Re-open VSCode (you really must close it!)
-- Press `Ctrl+J` to show the terminal
-- Execute this command  
-  ...this is all one-line! (please copy/paste; don't type it)
+- เปิด VSCode อีกครั้ง (คุณต้องปิดจริงๆ!)
+- กด `Ctrl+J` เพื่อแสดง terminal
+- ดำเนินการคำสั่งนี้  
+  ...นี่คือบรรทัดเดียวทั้งหมด! (กรุณาคัดลอก/วาง ห้ามพิมพ์)
   ```sh
   code --force --install-extension rohit-gohri.format-code-action && code --force --install-extension dbaeumer.vscode-eslint && code --force --install-extension esbenp.prettier-vscode && code --force --install-extension stylelint.vscode-stylelint && code --force --install-extension octref.vetur && code --force --install-extension TabNine.tabnine-vscode && code --force --install-extension MS-vsliveshare.vsliveshare && code --force --install-extension humao.rest-client && code --force --install-extension yzhang.markdown-all-in-one
   ```
 
-## 4. Install Web Developer CLI Tools
+## 4. ติดตั้งเครื่องมือ CLI สำหรับนักพัฒนาเว็บ
 
-- Still in VSCode terminal... execute this command:
+- ยังอยู่ใน VSCode TER... รันคำสั่งนี้:
   ```sh
   npm i -g firebase-tools typescript yarn
   ```
-- And...
+- และ...
   ```sh
   yarn config set ignore-engines true
+  ```
+
+# ✅ ตรวจสอบว่าทุกอย่างใช้งานได้
+
+- เรียกใช้คำสั่งต่อไปนี้และระวังข้อผิดพลาด
+  ```sh
+  node -v && npm -v && yarn -v && tsc -v && firebase -V && code -v
   ```
