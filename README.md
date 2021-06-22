@@ -48,7 +48,7 @@
 
 ## 4. ติดตั้งเครื่องมือ CLI สำหรับนักพัฒนาเว็บ
 
-- ยังอยู่ใน VSCode TER... รันคำสั่งนี้:
+- ยังอยู่ใน VSCode terminal... รันคำสั่งนี้:
   ```sh
   npm i -g firebase-tools typescript yarn
   ```
