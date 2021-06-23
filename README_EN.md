@@ -64,3 +64,10 @@ Please download & install:
   ```sh
   node -v && npm -v && yarn -v && tsc -v && firebase -V && code -v
   ```
+
+# 🙌 Fork this project
+
+- Click "Fork" (top-right) & pick your own GitHub account
+- You should see `YOUR-NAME/web-21s1 forked from ...`
+- Open Settings > Manage access > Invite a collaborator > charles-allen
+- After I accept, change my role to "Admin"
