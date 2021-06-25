@@ -62,11 +62,6 @@ app.get('/html-pic', (req, res) => {
   `)
 })
 
-// Start server
-const PORT = 3000
-app.listen(PORT, () => console.log(
-  `listening on http://localhost:${PORT}`))
-
 // Labs
 app.get('/labs' , (req, res) => {
 res.send(`
@@ -146,3 +141,8 @@ app.get('/api/grades', (req,res) => {
     app.get('/boredom', (req,res) => {
         res.status(404).send(`Sorry - we don't that here!`)
     })    
+
+    // Start server
+const PORT = 3000
+app.listen(PORT, () => console.log(
+  `listening on http://localhost:${PORT}`))
