@@ -32,16 +32,19 @@ app.get('/html', (req, res) => {
    })
 //localhost:3000/status
 app.get('/status', (req, res) => {
-    res.sendStatus(200)
+    res.sendStatus(403)
    })
- //localhost:3000/status2
+//localhost:3000/status2
+ app.get('/status2', (req, res) => {
+   res.Status(500).send('Oh no, something went wrong')
+  })
  
  //localhost:3000/html-pic
  app.get('/html-pic', (req, res) => {
     res.send(`
     <html><body>
     <h1>Hello</h1>
-    <img src="/hello.jpg" width="300" />
+    <img src="/images/hello.jpg" width="300" />
     </html></body>
     `)
    })
