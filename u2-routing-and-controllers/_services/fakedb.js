@@ -44,8 +44,18 @@ const findUserBySearch = (search) => {
   )
 }
 
+const products = {
+  lenovo: {},
+  asus: {}
+}
+
+const findProducts = (q) => {
+  return products[q]
+}
+
 module.exports = {
   findUser,
   findUserByUsername,
-  findUserBySearch
+  findUserBySearch,
+  findProducts
 }
