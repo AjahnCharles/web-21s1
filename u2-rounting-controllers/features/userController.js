@@ -20,7 +20,7 @@ const getUserByPath = (req, res) => {
   const user = findUserByUsername(username)
 
   if (user) res.send(`${user.name} [${user.email}]`)
-  else res.send('jay@email.com')
+  else res.send('Not found')
 }
 
 const getUserByForm = (req, res) => {
