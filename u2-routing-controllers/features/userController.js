@@ -1,37 +1,47 @@
 const { findUser, findUserByUsername, findUserBySearch } = require('../_services/fakedb')
 
 const getUserByQuery = (req, res) => {
+  // Inputs (query string)
   const userId = req.query.id
-  const user = findUser(userId)
 
-  if (user) {
-    res.send(`<html><body><p>
+  // Get & validate user
+  const user = findUser(userId)
+  if (!user) return res.status(404).send('User does not exist')
+
+  // Send response
+  res.send(`<html><body><p>
        ${user.name}<br>
        ${user.email}<br>
        ${user.skills.join(' &amp; ')}
      </p></body></html>`)
-  } else {
-    res.send('User does not exist')
-  }
 }
 
 const getUserByPath = (req, res) => {
+  // Inputs (path params)
   const username = req.params.username
-  const user = findUserByUsername(username)
 
-  if (user) res.send(`${user.name} [${user.email}]`)
-  else res.send('User does not exist')
+  // Get & validate user
+  const user = findUserByUsername(username)
+  if (!user) return res.status(404).send('User does not exist')
+
+  // Send response
+  res.send(`${user.name} [${user.email}]`)
 }
 
 const getUserByForm = (req, res) => {
-  const search = req.body.search
-  const user = findUserBySearch(search)
+  // Inputs (post body)
+  const searchTerms = req.body.search
 
-  if (user) res.send(`${search} matches ${user.name}`)
-  else res.send(`No results for ${search}`)
+  // Get & validate user
+  const user = findUserBySearch(searchTerms)
+  if (!user) return res.send(`No results for ${searchTerms}`)
+
+  // Send response
+  res.send(`${searchTerms} matches ${user.name}`)
 }
 
-const search = (req, res) => {
+const search = (_req, res) => {
+  // Send form
   res.send(`<html><body><form action="/users" method="post">
       <input name="search" />
       <button type="submit">Search</button>
