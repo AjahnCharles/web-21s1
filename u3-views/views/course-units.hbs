@@ -1,5 +1,9 @@
-{{> breadcrumbs crumbs=crumbs }}
+{{#* inline "head"}}
+<!-- add head here -->{{/inline}}
+{{#* inline "scripts"}}
+<!-- add scripts here -->{{/inline}}
 
+{{#> page }}
 <table border="1" cellpadding="6">
 
   <tr>
@@ -13,5 +17,5 @@
     <td>{{ this.title }}</td>
   </tr>
   {{/each}}
-
 </table>
+{{/page}}
