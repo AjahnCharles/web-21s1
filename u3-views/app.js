@@ -18,7 +18,7 @@ app.engine('hbs', expHbs({
 app.use(express.static('public'))
 
 // Routes
-// TODO later
+app.get('/', index)
 
 const PORT = 3000
 app.listen(PORT,
