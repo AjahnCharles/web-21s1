@@ -1,5 +1,7 @@
-{{> breadcrumbs crumbs=crumbs }}
+{{#* inline "head"}}<link ref="stylesheet" href="/styles2.css">{{/inline}}
+{{#* inline "scripts"}}<!-- add scripts here -->{{/inline}}
 
+{{#> page }}
 <table cellpadding='6'>
   <tr>
     <td>Code</td>
@@ -14,3 +16,4 @@
     <td>{{course.semester}}</td>
   </tr>
 </table>
+{{/page}}

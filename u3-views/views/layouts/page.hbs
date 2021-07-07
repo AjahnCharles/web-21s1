@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{#if title}}{{title}}{{else}}{{course.code}}{{/if}}</title>
+  <link rel="stylesheet" href="/styles.css">
+  {{#> head}}{{/head}}
+</head>
+<body>
+  <div class="content">
+    {{> breadcrumbs }}
+    {{> @partial-block }}
+  </div>
+  <div class="footer">
+    <a href="/courses/{{ course.code }}">details</a> |
+    <a href="/courses/{{ course.code }}/units">units</a> |
+    <a href="/courses/{{ course.code }}/students">students</a>
+  </div>
+  {{#> scripts}}{{/scripts}}
+</body>
+</html>

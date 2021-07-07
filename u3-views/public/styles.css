@@ -1,0 +1,43 @@
+body {
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding: 10px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 3px 5px;
+  text-align: center;
+  background-color: #efefef;
+  color: #999999;
+  border-top: 1px solid #999999;
+}
+
+.footer a,
+.footer a:visited {
+  color: #999999;
+}
+
+ul.breadcrumbs {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+ul.breadcrumbs li {
+  display: inline;
+}
+
+ul.breadcrumbs li::after {
+  content: ' >';
+}
+
+ul.breadcrumbs li:last-child::after {
+  content: '';
+}
