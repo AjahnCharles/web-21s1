@@ -19,7 +19,7 @@ app.use(express.static('public'))
 
 // Routes
 app.get('/', index)
+app.get('/courses/:code', courseDetails)
 
 const PORT = 3000
-app.listen(PORT,
-  () => console.log(`Listening: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Listening: http://localhost:${PORT}`))
