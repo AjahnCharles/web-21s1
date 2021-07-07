@@ -1,7 +1,7 @@
 const getTemp = (req, res) => {
   const u1 = req.params.u1.toUpperCase()
   const u2 = req.params.u2.toUpperCase()
-  const t1 = req.params.t1
+  const t1 = parseFloat(req.params.t1)
 
   let t2
   if (u1 === u2) {
@@ -12,7 +12,7 @@ const getTemp = (req, res) => {
     t2 = (t1 - 32) * 5 / 9
   }
 
-  res.send(`${parseFloat(t1).toFixed(1)} ${u1} = ${parseFloat(t2).toFixed(1)} ${u2}`)
+  res.send(`${t1.toFixed(1)} ${u1} = ${t2.toFixed(1)} ${u2}`)
 }
 
 module.exports = {
