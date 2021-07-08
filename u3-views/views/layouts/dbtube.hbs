@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DBTube</title>
+    <link rel="stylesheet" type="text/css" href="/video.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <span class="brand"><a href="/videos">DBTube</a></span>
+      <span class="auth"><a href="/videos/auth" 
+        onclick="alert('Maybe in version 2 :p'); return false;">Login</a></span>
+    </div>
+    <div class="content">
+      {{> @partial-block }}
+    </div>
+  </body>
+</html>
