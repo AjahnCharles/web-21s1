@@ -2,6 +2,7 @@ const express = require('express')
 const expHbs = require('express-handlebars')
 const { index } = require('./features/indexController')
 const { courseDetails, courseUnits, courseStudents } = require('./features/courseController')
+const { videoDetails, videoHome } = require('./features/videoController')
 
 const app = express()
 
@@ -22,6 +23,8 @@ app.get('/', index)
 app.get('/courses/:code', courseDetails)
 app.get('/courses/:code/units', courseUnits)
 app.get('/courses/:code/students', courseStudents)
+app.get('/videos/:id', videoDetails)
+app.get('/videos', videoHome)
 
 const PORT = 3000
 app.listen(PORT, () => console.log(`Listening: http://localhost:${PORT}`))
