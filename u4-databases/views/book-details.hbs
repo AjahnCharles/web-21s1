@@ -1,0 +1,14 @@
+{{#> page}}
+
+<h1>{{ book.title }}</h1>
+
+<p class="authors">
+  {{#each book.authors}}
+  <a href="/books?q={{ this }}">{{ this }}</a>{{#unless @last}}, {{/unless}} {{/each}}
+</p>
+
+<img src="/images/{{ book.isbn13 }}.jpg" />
+
+<p>{{ book.description }}</p>
+
+{{/page}}

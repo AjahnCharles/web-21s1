@@ -1,0 +1,18 @@
+{{#> page}}
+
+<form class="create" method="POST" action="/books">
+  <input name="isbn13" placeholder="ISBN-13" />
+  <input name="title" placeholder="Title" />
+  <textarea name="description" placeholder="Description"></textarea>
+  <input type="number" name="pages" placeholder="Page Count" />
+
+  <select name="authorIds" multiple>
+    {{#each authors}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Add New Book</button>
+</form>
+
+{{/page}}
