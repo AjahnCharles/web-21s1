@@ -4,7 +4,8 @@
 
 <p class="authors">
   {{#each book.authors}}
-  <a href="/books?q={{ this }}">{{ this }}</a>{{#unless @last}}, {{/unless}} {{/each}}
+  <a href="/books?q={{ this }}">{{ this }}</a>{{#unless @last}}, {{/unless}} 
+  {{/each}}
 </p>
 
 <img src="/images/{{ book.isbn13 }}.jpg" />
