@@ -1,5 +1,6 @@
 const express = require('express')
 const expHbs = require('express-handlebars')
+
 const { index } = require('./features/indexController')
 const { courseDetails, courseUnits, courseStudents } = require('./features/courseController')
 const { videoDetails, videoHome } = require('./features/videoController')
@@ -19,6 +20,7 @@ app.engine('hbs', expHbs({
 app.use(express.static('public'))
 
 // Routes
+
 app.get('/', index)
 app.get('/courses/:code', courseDetails)
 app.get('/courses/:code/units', courseUnits)
