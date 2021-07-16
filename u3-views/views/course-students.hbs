@@ -1,0 +1,12 @@
+{{#* inline "head"}}
+<!-- add head here -->{{/inline}}
+{{#* inline "scripts"}}
+<!-- add scripts here -->{{/inline}}
+
+{{#> page }}
+<ul>
+  {{#each course.students}}
+  <li>{{ this }}</li>
+  {{/each}}
+</ul>
+{{/page}}
