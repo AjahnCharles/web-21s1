@@ -7,8 +7,8 @@ const videoDetails = (req, res) => {
   res.render('video-player', { video: video, teases: teases })
 }
 const videoHome = (req, res) => {
-  const teases = getSuggestions(30)
-  res.render('video-home', { teases: teases })
+  const cards = getSuggestions(30)
+  res.render('video-home', { cards: cards })
 }
 
 module.exports = {
