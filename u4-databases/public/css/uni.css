@@ -1,0 +1,57 @@
+* {
+  font-size: 1.2rem;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  color: #0000ff;
+}
+
+h1,
+h1 a {
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style-type: square;
+}
+
+.uni-nav {
+  display: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #eeeeff;
+  padding: 1rem 1rem;
+}
+
+.uni-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.uni-nav ul li {
+  display: inline-block;
+}
+
+.uni-nav ul li::after {
+  content: ' | ';
+}
+
+.uni-nav ul li:last-child::after {
+  content: '';
+}
+
+.uni-content {
+  padding: 0.6rem 1rem;
+}
