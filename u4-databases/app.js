@@ -1,7 +1,7 @@
 const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
-const { bookDetails } = require('./features/book-controller.js')
+const { bookDetails, bookSearch } = require('./features/book-controller.js')
 
 const app = express()
 
@@ -20,6 +20,7 @@ app.use(json())
 app.use(urlencoded({ extended: false }))
 
 // Routes
+app.get('/books', bookSearch)
 app.get('/books/:isbn13', bookDetails)
 // TODO later
 
