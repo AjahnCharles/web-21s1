@@ -1,7 +1,7 @@
 const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
-const { bookDetails, bookSearch } = require('./features/book-controller.js')
+const { bookDetails, bookSearch, bookCreateForm, bookCreate } = require('./features/book-controller.js')
 
 const app = express()
 
@@ -21,8 +21,11 @@ app.use(urlencoded({ extended: false }))
 
 // Routes
 app.get('/books', bookSearch)
+app.post('/books', bookCreate)
+app.get('/books/new', bookCreateForm)
 app.get('/books/:isbn13', bookDetails)
-// TODO later
+
+app.get('/images/:catchall', (_req, res) => res.redirect('/images/404.jpg'))
 
 const PORT = 3000
 app.listen(PORT, () => console.log(`Listening: http://localhost:${PORT}`))
