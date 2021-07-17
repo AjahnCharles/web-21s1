@@ -11,7 +11,9 @@
   "editor.quickSuggestions": { "strings": true },
   "editor.rulers": [80], // Same as Prettier
   "editor.tabSize": 2,
-  "eslint.codeAction.showDocumentation": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
   "eslint.enable": true,
   "eslint.format.enable": false, // Enabled via codeActionsOnSave (known order)
   "eslint.lintTask.enable": true,
@@ -29,7 +31,7 @@
   "[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
   "[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
   "[typescriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },  
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
