@@ -1,0 +1,21 @@
+{{#> page}}
+
+<form method="GET" action="/books">
+  <input name="terms" value="{{ terms }}" />
+  <button type="submit">Search</button>
+</form>
+
+<table class="search" border="0">
+  {{#each results }}
+  <tr>
+    <td><img src="/images/{{ isbn13 }}.jpg" width="120" /></td>
+    <td>
+      <h1><a href="/books/{{ isbn13 }}">{{ title }}</a></h1>
+      <p class="authors">by {{ authors }}</p>
+      <p>{{ description }}</p>
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}

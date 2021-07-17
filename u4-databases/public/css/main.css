@@ -1,0 +1,128 @@
+* {
+  font-size: 1.2rem;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited {
+  color: #0000ff;
+}
+
+h1,
+h1 a {
+  font-size: 1.6rem;
+}
+
+ul {
+  list-style-type: square;
+}
+
+.books-nav {
+  display: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffeeee;
+  color: #cc3333;
+  padding: 0.5rem 1rem;
+}
+
+.books-nav a,
+.books-nav a:visited {
+  color: #cc3333;
+  text-decoration: none;
+}
+
+.books-nav a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+.books-nav ul {
+  float: right;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.books-nav ul li {
+  display: inline-block;
+}
+
+.books-nav ul li::after {
+  content: ' · ';
+}
+
+.books-nav ul li:last-child::after {
+  content: '';
+}
+
+.books-content {
+  padding: 16px;
+}
+
+.books-content .create input,
+.books-content .create textarea,
+.books-content .create select,
+.books-content .create button {
+  display: block;
+  width: 450px;
+  margin-bottom: 16px;
+}
+
+.books-content .create textarea {
+  height: 175px;
+}
+
+.search {
+  margin: 12px 0;
+}
+
+.search td {
+  vertical-align: top;
+  padding: 4px;
+  height: 160px;
+}
+
+.search td:first-child {
+  padding-right: 12px;
+}
+
+.search td h1 {
+  margin: 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search td p {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search h1,
+.search p {
+  margin: 4px;
+}
+
+p.authors,
+p.authors a,
+p.authors a:visited {
+  font-style: italic;
+  color: #777777;
+}
