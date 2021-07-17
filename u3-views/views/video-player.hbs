@@ -1,0 +1,14 @@
+{{#>dbtube}}
+<div class='playback'>
+  <div class='playback-player'>
+    <img src='/images/{{ video.id }}.webp' />
+    <h3>{{ video.title }}</h3>
+    <p class='stats'>{{ video.views }} views · {{ video.date }}</p>
+  </div>
+  <div class="playback-videos">
+    {{#each teases }}
+    {{>video-tease tease=this}}
+    {{/each}}
+  </div>
+</div>
+{{/dbtube}}
