@@ -1,0 +1,9 @@
+{{#>uni}}
+<h1>Course Iterations</h1>
+<ul>
+  {{#each iterations}}
+  <li><a href='/iterations/{{ iterationCode }}'>{{ iterationCode }} {{ title }}</a> [{{ studentCount }} students]</li>
+  {{/each}}
+  <li>etc.</li>
+</ul>
+{{/uni}}
