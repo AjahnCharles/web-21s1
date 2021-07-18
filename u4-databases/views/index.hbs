@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body class="index">
+  <h1>U4: Databases</h1>
+  <u1>
+    <li><a href='/books'>/books</a></li>
+    <li>
+      <form action='/books' method='POST'>
+        <input type='hidden' name='isbn13' value='123' />
+        <input type='hidden' name='title' value='Example Book' />
+        <input type='hidden' name='description' value='this is just that invented in class' />
+        <input type='hidden' name='pages' value='1' />
+        <input type='hidden' name='authorIds' value='Bob' />
+        <input type='submit' value='books' />
+        <span class='hint'>POST</span>
+      </form>
+    </li>
+    <li><a href='/books/new'>/books/new</a></li>
+    <li><a href='/books/978-1941222157'>/books/:isbn13</a></li>
+  </u1>
+  <h1>U4L: Databases Labs</h1>
+  <u1>
+    <li><a href='/iterations'>/iterations</a></li>
+    <li><a href='/iterations/231370.21s1'>/iterations/:code</a></li>
+    <li><a href='/students/62346786'>/students/:code</a></li>
+    <li><a href='/courses'>/courses</a></li>
+    <li><a href='/courses/231370'>/courses/:code</a></li>
+  </u1>
+</body>
+
+</html>

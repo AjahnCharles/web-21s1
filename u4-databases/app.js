@@ -2,6 +2,7 @@ const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 const { bookDetails, bookSearch, bookCreateForm, bookCreate } = require('./features/book-controller.js')
+const { iterationList, iterationDetails, studentDetails, courseList, courseDetails } = require('./features/uni-controller.js')
 
 const app = express()
 
@@ -24,8 +25,12 @@ app.get('/books', bookSearch)
 app.post('/books', bookCreate)
 app.get('/books/new', bookCreateForm)
 app.get('/books/:isbn13', bookDetails)
-
 app.get('/images/:catchall', (_req, res) => res.redirect('/images/404.jpg'))
+app.get('/iterations', iterationList)
+app.get('/iterations/:code', iterationDetails)
+app.get('/students/:code', studentDetails)
+app.get('/courses', courseList)
+app.get('/courses/:code', courseDetails)
 
 const PORT = 3000
 app.listen(PORT, () => console.log(`Listening: http://localhost:${PORT}`))

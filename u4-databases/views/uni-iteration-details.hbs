@@ -1,0 +1,14 @@
+{{#>uni iteration}}
+
+<h1>{{ iterationCode }} - {{title}}</h1>
+
+Year: {{ year }} <br>
+Semester: {{ semester }}
+
+<h2>Students</h2>
+<u1>
+  {{#each studentCodes}}
+  <li><a href="/students/{{ this }}">{{ this }}</a></li>
+  {{/each}}
+</u1>
+{{/uni}}
