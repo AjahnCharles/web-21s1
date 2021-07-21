@@ -16,7 +16,7 @@ const readBooks = async (req, res) => {
 
     res.json({
       result: 'ok',
-      payload: payload,
+      payload,
       count: payload.length
     })
   } catch (err) {
@@ -29,6 +29,28 @@ const readBooks = async (req, res) => {
   }
 }
 
+const readBook = async (req, res) => {
+  try {
+    // 1. Inputs
+    const isbn13 = req.params.isbn13
+
+    // 2. Query
+    const query = db.collection('books').doc(isbn13).get()
+
+    // 3. Response
+    const snapshot = await query
+    if (!snapshot.exists) return res.status(404).json({ result: 'not found' })
+
+    const { title, authors, description, pages } = snapshot.data()
+    const payload = { title, authors, description, pages }
+    res.json({ result: 'ok', payload })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ result: 'error' })
+  }
+}
+
 module.exports = {
-  readBooks
+  readBooks,
+  readBook
 }
