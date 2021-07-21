@@ -87,9 +87,29 @@ const replaceBook = async (req, res) => {
   }
 }
 
+const updateBook = async (req, res) => {
+  try {
+    // 1. Inputs
+    const isbn13 = req.params.isbn13
+    const { title } = req.body
+    const book = { title }
+
+    // 2. Query
+    const query = db.collection('books').doc(isbn13).set(book, { merge: true })
+
+    // 3. Response
+    await query
+    res.sendStatus(200)
+  } catch (err) {
+    console.error(err)
+    res.sendStatus(500)
+  }
+}
+
 module.exports = {
   readBooks,
   readBook,
   createBook,
-  replaceBook
+  replaceBook,
+  updateBook
 }
