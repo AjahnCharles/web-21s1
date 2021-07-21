@@ -50,7 +50,26 @@ const readBook = async (req, res) => {
   }
 }
 
+const createBook = async (req, res) => {
+  try {
+    // 1. Inputs
+    const { isbn13, title, authors, description, pages } = req.body
+    const book = { isbn13, title, authors, description, pages: parseInt(pages) || 0 }
+
+    // 2. Query
+    const query = db.collection('books').doc(isbn13).set(book, { merge: true })
+
+    // 3. Response
+    await query
+    res.sendStatus(201)
+  } catch (err) {
+    console.error(err)
+    res.sendStatus(500)
+  }
+}
+
 module.exports = {
   readBooks,
-  readBook
+  readBook,
+  createBook
 }
