@@ -1,0 +1,41 @@
+@host = http://localhost:3000
+
+### Read All Books
+GET {{host}}/books
+
+### Read One Book
+GET {{host}}/books/978-1941222157
+
+### Create Book
+POST {{host}}/books
+content-type: application/json
+
+{
+ "isbn13": "123-1234567890",
+ "title": "REST API Development",
+ "authors": ["Charles Allen", "BC61"],
+ "description": "A short summary of how to build REST APIs with Express",
+ "pages": 123
+}
+
+### Replace Book
+PUT {{host}}/books/123-1234567890
+content-type: application/json
+
+{
+ "title": "API Dev",
+ "authors": ["Charles Allen", "BC61 Students"],
+ "description": "A short summary of how to build REST APIs with Express",
+ "pages": 150
+}
+
+### Update Book
+PATCH {{host}}/books/123-1234567890
+content-type: application/json
+
+{
+ "title": "REST API Development; with ExpressJS & Firebase Cloud Functions"
+}
+
+### Delete Book
+DELETE {{host}}/books/123-1234567890
