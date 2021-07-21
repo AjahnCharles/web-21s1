@@ -36,8 +36,24 @@ const studentDetails = async (req, res) => {
   res.render('uni-student-details', { student })
 }
 
+const courseList = async (req, res) => {
+  // 1. Inputs
+  // none
+
+  // 2. Query
+  const query = db.collection('iterations')
+    .where('year', '==', 2021)
+    .where('semester', '==', 1)
+    .get()
+
+  // 3. Response
+  const courses = (await query).docs.map(doc => doc.data())
+  res.render('uni-course-list', { courses })
+}
+
 module.exports = {
   iterationList,
   iterationDetails,
-  studentDetails
+  studentDetails,
+  courseList
 }
