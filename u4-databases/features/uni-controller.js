@@ -12,6 +12,19 @@ const iterationList = async (req, res) => {
   res.render('uni-iteration-list', { iterations })
 }
 
+const iterationDetails = async (req, res) => {
+  // 1. Inputs
+  const iterationCode = req.params.code
+
+  // 2. Query
+  const query = db.collection('iterations').doc(iterationCode).get()
+
+  // 3. Response
+  const iteration = (await query).data()
+  res.render('uni-iteration-details', { iteration })
+}
+
 module.exports = {
-  iterationList
+  iterationList,
+  iterationDetails
 }

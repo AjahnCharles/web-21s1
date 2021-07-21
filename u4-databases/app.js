@@ -4,7 +4,7 @@ const { json, urlencoded } = require('body-parser')
 
 const { index} = require('./features/index-controller')
 const { bookDetails, bookSearch, bookCreateForm, bookCreate } = require('./features/book-controller')
-const { iterationList } = require('./features/uni-controller')
+const { iterationList, iterationDetails } = require('./features/uni-controller')
 
 const app = express()
 
@@ -31,6 +31,7 @@ app.get('/books/new', bookCreateForm)
 app.get('/books/:isbn13', bookDetails)
 
 app.get('/iterations', iterationList)
+app.get('/iterations/:code', iterationDetails)
 
 app.get('/images/:catchall',
   (_req, res) => res.redirect('/images/404.jpg'))
