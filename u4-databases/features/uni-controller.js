@@ -51,9 +51,26 @@ const courseList = async (req, res) => {
   res.render('uni-course-list', { courses })
 }
 
+const courseDetails = async (req, res) => {
+  // 1. Inputs
+  const courseCode = req.params.code
+
+  // 2. Query
+  const query = db.collection('iterations')
+    .where('courseCode', '==', courseCode)
+    .orderBy('iterationCode', 'desc')
+    .limit(1)
+    .get()
+
+  // 3. Response
+  const currentIteration = (await query).docs[0].data()
+  res.render('uni-course-details', { currentIteration })
+}
+
 module.exports = {
   iterationList,
   iterationDetails,
   studentDetails,
-  courseList
+  courseList,
+  courseDetails
 }

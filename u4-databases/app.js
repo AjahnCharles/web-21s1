@@ -2,9 +2,9 @@ const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 
-const { index} = require('./features/index-controller')
+const { index } = require('./features/index-controller')
 const { bookDetails, bookSearch, bookCreateForm, bookCreate } = require('./features/book-controller')
-const { iterationList, iterationDetails, studentDetails, courseList } = require('./features/uni-controller')
+const { iterationList, iterationDetails, studentDetails, courseList, courseDetails } = require('./features/uni-controller')
 
 const app = express()
 
@@ -34,6 +34,7 @@ app.get('/iterations', iterationList)
 app.get('/iterations/:code', iterationDetails)
 app.get('/students/:code', studentDetails)
 app.get('/courses', courseList)
+app.get('/courses/:code', courseDetails)
 
 app.get('/images/:catchall',
   (_req, res) => res.redirect('/images/404.jpg'))
