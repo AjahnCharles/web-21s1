@@ -70,27 +70,35 @@ const createCovidRecord = async (req, res) => {
     const { stateId, date: dateMillis, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent } = req.body
     const date = firestore.Timestamp.fromMillis(dateMillis)
 
-    const latestUpdate = { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
-    const historyEntry = { date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
-    const historyUpdate = { history: firestore.FieldValue.arrayUnion(historyEntry) }
-
     // 2. Query
     const query = db.runTransaction(async t => {
-      // Read data from covid-latest
-      const latestSnapshot = await t.get(db.collection('covid-latest').doc(stateId))
-      if (!latestSnapshot.exists) return res.sendStatus(404)
+      // Read data from covid-latest & covid-history
+      const [latestSnapshot, historySnapshot] = await Promise.all([
+        t.get(db.collection('covid-latest').doc(stateId)),
+        t.get(db.collection('covid-history').doc(stateId))
+      ])
+
+      // Our NoSQL design requires the docs to exist already (stateId/stateName must be defined)
+      if (!latestSnapshot.exists || !historySnapshot.exists) return res.sendStatus(404)
+
+      // Reject if this data already exists
+      const oldHistoryEntry = historySnapshot.data().history.find(oldHistoryEntry => oldHistoryEntry.date.seconds === date.seconds)
+      if (oldHistoryEntry) return res.sendStatus(409)
 
       // Only update latest if request data is newer
+      const latestUpdate = { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
       if (latestSnapshot.data().date.seconds < date.seconds) t.set(db.collection('covid-latest').doc(stateId), latestUpdate, { merge: true })
 
       // Always update history (add new entry)
-      // TODO: This assumes the new history record doesn't exist -- would be better to assert this (to make this idempotent)
+      const historyEntry = { date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
+      const historyUpdate = { history: firestore.FieldValue.arrayUnion(historyEntry) }
       t.set(db.collection('covid-history').doc(stateId), historyUpdate, { merge: true })
+
+      res.sendStatus(201)
     })
 
     // 3. Response
     await query
-    res.sendStatus(201)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)
@@ -124,9 +132,6 @@ const updateCovidRecord = async (req, res) => {
     const { date: dateMillis, cases, casesNew } = req.body
     const date = firestore.Timestamp.fromMillis(dateMillis)
 
-    const latestUpdate = { date, cases, casesNew }
-    const historyEntry = { date, cases, casesNew } // coincidentally the same change as latestUpdate
-
     // 2. Query
     const query = db.runTransaction(async t => {
       // Read data from covid-latest & covid-history
@@ -134,13 +139,17 @@ const updateCovidRecord = async (req, res) => {
         t.get(db.collection('covid-latest').doc(stateId)),
         t.get(db.collection('covid-history').doc(stateId))
       ])
+
+      // Our NoSQL design requires the docs to exist already (stateId/stateName must be defined)
       if (!latestSnapshot.exists || !historySnapshot.exists) return res.sendStatus(404)
 
-      // Only update latest if request data is newer
-      if (latestSnapshot.data().date.seconds < date.seconds) t.set(db.collection('covid-latest').doc(stateId), latestUpdate, { merge: true })
+      // Only update latest if request data is newer OR equal
+      const latestUpdate = { date, cases, casesNew }
+      if (latestSnapshot.data().date.seconds <= date.seconds) t.set(db.collection('covid-latest').doc(stateId), latestUpdate, { merge: true })
 
-      // Always update history (replace old entry)
+      // Always update history (merge new entry into old entry)
       const history = []
+      const historyEntry = { date, cases, casesNew } // coincidentally the same change as latestUpdate
       for (const oldHistoryEntry of historySnapshot.data().history) {
         if (oldHistoryEntry.date.seconds === date.seconds) history.push({ ...oldHistoryEntry, ...historyEntry })
         else history.push(oldHistoryEntry)
@@ -148,11 +157,12 @@ const updateCovidRecord = async (req, res) => {
 
       const historyUpdate = { history }
       t.set(db.collection('covid-history').doc(stateId), historyUpdate, { merge: true })
+
+      res.sendStatus(200)
     })
 
     // 3. Response
     await query
-    res.sendStatus(200)
   } catch (err) {
     console.error(err)
     res.sendStatus(500)
