@@ -117,9 +117,14 @@ const updateCovidRecord = async (req, res) => {
   }
 }
 
+const deleteCovidRecord = async (req, res) => {
+  res.sendStatus(403)
+}
+
 module.exports = {
   readCovidRecords,
   readCovidRecord,
   createCovidRecord,
-  updateCovidRecord
+  updateCovidRecord,
+  deleteCovidRecord
 }
