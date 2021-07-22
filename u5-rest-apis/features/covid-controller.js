@@ -46,38 +46,50 @@ const readCovidRecord = async (req, res) => {
 
 const createCovidRecord = async (req, res) => {
   try {
-    /*********************************/
-    /* Version 1: Only update latest */
-    /*********************************/
+    /************************************/
+    /* Version 1: Blindly update latest */
+    /************************************/
 
     // // 1. Inputs
-    // const { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent } = req.body
-    // const record = { stateId, date: firestore.Timestamp.fromMillis(date), cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
+    // const { stateId, date: dateMillis, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent } = req.body
+    // const data = firestore.Timestamp.fromMillis(dateMillis)
+    // const latestUpdate = { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
 
     // // 2. Query
-    // const query = db.collection('covid-latest').doc(stateId).set(record, { merge: true })
+    // const query = db.collection('covid-latest').doc(stateId).set(latestUpdate, { merge: true })
 
     // // 3. Response
     // await query
     // res.sendStatus(201)
 
     /**********************************/
-    /* Version 2: Also update history */
+    /* Version 2: Check & update both */
     /**********************************/
 
     // 1. Inputs
-    const { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent } = req.body
-    const record = { stateId, date: firestore.Timestamp.fromMillis(date), cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
-    const historyEntry = { date: firestore.Timestamp.fromMillis(date), cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
+    const { stateId, date: dateMillis, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent } = req.body
+    const date = firestore.Timestamp.fromMillis(dateMillis)
+
+    const latestUpdate = { stateId, date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
+    const historyEntry = { date, cases, casesNew, vaccineOne, vaccineOnePercent, vaccineComplete, vaccineCompletePercent }
     const historyUpdate = { history: firestore.FieldValue.arrayUnion(historyEntry) }
 
     // 2. Query
-    const batch = db.batch()
-    batch.set(db.collection('covid-latest').doc(stateId), record, { merge: true })
-    batch.set(db.collection('covid-history').doc(stateId), historyUpdate, { merge: true })
+    const query = db.runTransaction(async t => {
+      // Read data from covid-latest
+      const latestSnapshot = await t.get(db.collection('covid-latest').doc(stateId))
+      if (!latestSnapshot.exists) return res.sendStatus(404)
+
+      // Only update latest if request data is newer
+      if (latestSnapshot.data().date.seconds < date.seconds) t.set(db.collection('covid-latest').doc(stateId), latestUpdate, { merge: true })
+
+      // Always update history (add new entry)
+      // TODO: This assumes the new history record doesn't exist -- would be better to assert this (to make this idempotent)
+      t.set(db.collection('covid-history').doc(stateId), historyUpdate, { merge: true })
+    })
 
     // 3. Response
-    await batch.commit()
+    await query
     res.sendStatus(201)
   } catch (err) {
     console.error(err)
@@ -87,30 +99,60 @@ const createCovidRecord = async (req, res) => {
 
 const updateCovidRecord = async (req, res) => {
   try {
-    /*********************************/
-    /* Version 1: Only update latest */
-    /*********************************/
+    /************************************/
+    /* Version 1: Blindly update latest */
+    /************************************/
+
+    // // 1. Inputs
+    // const stateId = req.params.stateId.toUpperCase()
+    // const { date: dataMillis, cases, casesNew } = req.body
+    // const latestUpdate = { date: firestore.Timestamp.fromMillis(dateMillis), cases, casesNew }
+
+    // // 2. Query
+    // const query = db.collection('covid-latest').doc(stateId).set(latestUpdate, { merge: true })
+
+    // // 3. Response
+    // await query
+    // res.sendStatus(200)
+
+    /**********************************/
+    /* Version 2: Check & update both */
+    /**********************************/
 
     // 1. Inputs
     const stateId = req.params.stateId.toUpperCase()
-    const { date, cases, casesNew } = req.body
-    const record = { date: firestore.Timestamp.fromMillis(date), cases, casesNew }
+    const { date: dateMillis, cases, casesNew } = req.body
+    const date = firestore.Timestamp.fromMillis(dateMillis)
+
+    const latestUpdate = { date, cases, casesNew }
+    const historyEntry = { date, cases, casesNew } // coincidentally the same change as latestUpdate
 
     // 2. Query
-    const query = db.collection('covid-latest').doc(stateId).set(record, { merge: true })
+    const query = db.runTransaction(async t => {
+      // Read data from covid-latest & covid-history
+      const [latestSnapshot, historySnapshot] = await Promise.all([
+        t.get(db.collection('covid-latest').doc(stateId)),
+        t.get(db.collection('covid-history').doc(stateId))
+      ])
+      if (!latestSnapshot.exists || !historySnapshot.exists) return res.sendStatus(404)
+
+      // Only update latest if request data is newer
+      if (latestSnapshot.data().date.seconds < date.seconds) t.set(db.collection('covid-latest').doc(stateId), latestUpdate, { merge: true })
+
+      // Always update history (replace old entry)
+      const history = []
+      for (const oldHistoryEntry of historySnapshot.data().history) {
+        if (oldHistoryEntry.date.seconds === date.seconds) history.push({ ...oldHistoryEntry, ...historyEntry })
+        else history.push(oldHistoryEntry)
+      }
+
+      const historyUpdate = { history }
+      t.set(db.collection('covid-history').doc(stateId), historyUpdate, { merge: true })
+    })
 
     // 3. Response
     await query
     res.sendStatus(200)
-
-    /**********************************/
-    /* Version 2: Also update history */
-    /**********************************/
-
-    // TODO: We need to use a transaction:
-    // - Read the current data
-    // - Remove existing history data for that day
-    // - Add the new history data
   } catch (err) {
     console.error(err)
     res.sendStatus(500)
