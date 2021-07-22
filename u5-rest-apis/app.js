@@ -2,6 +2,7 @@ const express = require('express')
 const { json, urlencoded } = require('body-parser')
 
 const { readBooks, readBook, createBook, replaceBook, updateBook, deleteBook } = require('./features/book-controller')
+const { readCovidRecords, readCovidRecord } = require('./features/covid-controller')
 
 const app = express()
 
@@ -17,5 +18,12 @@ app.post('/books', createBook)
 app.put('/books/:isbn13', replaceBook)
 app.patch('/books/:isbn13', updateBook)
 app.delete('/books/:isbn13', deleteBook)
+
+app.get('/covid', readCovidRecords)
+app.get('/covid/:stateId', readCovidRecord)
+// app.post('/covid', createCovidRecord)
+// app.put('/covid/:stateId', replaceCovidRecord)
+// app.patch('/covid/:stateId', updateCovidRecord)
+// app.delete('/covid/:stateId', deleteCovidRecord)
 
 module.exports = { app }
