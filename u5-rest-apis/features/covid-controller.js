@@ -85,8 +85,41 @@ const createCovidRecord = async (req, res) => {
   }
 }
 
+const updateCovidRecord = async (req, res) => {
+  try {
+    /*********************************/
+    /* Version 1: Only update latest */
+    /*********************************/
+
+    // 1. Inputs
+    const stateId = req.params.stateId.toUpperCase()
+    const { date, cases, casesNew } = req.body
+    const record = { date: firestore.Timestamp.fromMillis(date), cases, casesNew }
+
+    // 2. Query
+    const query = db.collection('covid-latest').doc(stateId).set(record, { merge: true })
+
+    // 3. Response
+    await query
+    res.sendStatus(200)
+
+    /**********************************/
+    /* Version 2: Also update history */
+    /**********************************/
+
+    // TODO: We need to use a transaction:
+    // - Read the current data
+    // - Remove existing history data for that day
+    // - Add the new history data
+  } catch (err) {
+    console.error(err)
+    res.sendStatus(500)
+  }
+}
+
 module.exports = {
   readCovidRecords,
   readCovidRecord,
-  createCovidRecord
+  createCovidRecord,
+  updateCovidRecord
 }
