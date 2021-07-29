@@ -1,0 +1,12 @@
+# Secrets
+service-account*.json
+
+# Deps
+node_modules/
+
+# Logs
+logs
+*.log*
+
+# Firebase
+.firebase/
