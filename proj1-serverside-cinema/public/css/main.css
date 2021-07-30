@@ -1,6 +1,7 @@
 :root {
   --color-light: #efefef;
   --color-dark: #363636;
+  --color-link: #00f;
 }
 
 /* Foundation */
@@ -25,6 +26,10 @@ body {
   font-size: 12pt;
   background-color: var(--color-light);
   color: var(--color-dark);
+}
+
+a {
+  color: var(--color-link);
 }
 
 h1,
@@ -90,21 +95,54 @@ footer li {
   padding: 0.25rem;
 }
 
+/* Cinema Details */
+
+.cinema-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.cinema-details-grid a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.screening-screen {
+  font-size: 0.8rem;
+}
+
+.screening-time {
+  font-size: 1.8rem;
+}
+
+.screening-title {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.cinema-details-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
 /* Film List */
 
 .film-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   grid-gap: 1.25rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.film-grid a {
+  color: var(--color-dark);
+  text-decoration: none;
 }
 
 .film-grid img {
   aspect-ratio: 800 / 1200;
-}
-
-.film-grid a {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--color-dark);
-  text-decoration: none;
 }
