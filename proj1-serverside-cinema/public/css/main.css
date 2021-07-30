@@ -1,3 +1,10 @@
+:root {
+  --color-light: #efefef;
+  --color-dark: #363636;
+}
+
+/* Foundation */
+
 * {
   font-family:
     -apple-system,
@@ -16,6 +23,26 @@ body {
   margin: 0;
   padding: 0;
   font-size: 12pt;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+header,
+footer,
+header a,
+footer a {
+  background-color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .pancake-stack {
@@ -23,39 +50,25 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-header,
-footer,
-header a,
-footer a {
-  background-color: #363636;
-  color: #efefef;
-}
-
-header h1,
-header p {
-  margin: 0;
-  display: inline-block;
-}
-
-.header-right {
-  float: right;
-}
-
-.header-right :not(:last-child)::after {
-  content: ' | ';
-}
-
-header,
-main {
-  padding: 1rem 2rem;
-}
-
-main {
-  min-height: 1vh;
-}
-
+main,
 footer {
   padding: 2rem;
+}
+
+header {
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+header * {
+  margin: 0;
+  text-decoration: none;
+}
+
+header *:last-child {
+  justify-self: end;
+  align-self: center;
 }
 
 footer ol {
@@ -68,4 +81,23 @@ footer ol {
 footer li {
   padding-left: 0.5rem;
   padding-top: 0.25rem;
+}
+
+/* Film List */
+
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-gap: 1.25rem;
+}
+
+.film-grid img {
+  aspect-ratio: 800 / 1200;
+}
+
+.film-grid a {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  text-decoration: none;
 }

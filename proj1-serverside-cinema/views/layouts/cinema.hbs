@@ -11,26 +11,27 @@
 <body>
   <div class="pancake-stack">
     <header>
-      <h1>BECinema</h1>
-      <div class="header-right">
-        <p>Phitsanulok</p>
-        <p>Chaz</p>
-      </div>
+      <a href="{{baseUrl}}">
+        <h1>BECinema</h1>
+      </a>
+      <a href="{{baseUrl}}">
+        Phitsanulok | Chaz
+      </a>
     </header>
     <main>
       {{> @partial-block }}
     </main>
     <footer>
       <ol>
-        <li><a href="/films">Film List</a></li>
-        <li><a href="/films/123">Film Details</a></li>
-        <li><a href="/cinemas">Cinema List</a></li>
-        <li><a href="/cinemas/123">Cinema Details</a></li>
+        <li><a href="{{baseUrl}}films">Film List</a></li>
+        <li><a href="{{baseUrl}}films/123">Film Details</a></li>
+        <li><a href="{{baseUrl}}cinemas">Cinema List</a></li>
+        <li><a href="{{baseUrl}}cinemas/123">Cinema Details</a></li>
 
-        <li><a href="/book">Booking Form</a></li>
-        <li><a href="/book">Booking Submit [POST]</a></li>
-        <li><a href="/tickets/123">Ticket Details</a></li>
-        <li><a href="/api/v1/tickets/123">Ticket Details (API)</a></li>
+        <li><a href="{{baseUrl}}book">Booking Form</a></li>
+        <li><a href="{{baseUrl}}book">Booking Submit [POST]</a></li>
+        <li><a href="{{baseUrl}}tickets/123">Ticket Details</a></li>
+        <li><a href="{{baseUrl}}api/v1/tickets/123">Ticket Details (API)</a></li>
       </ol>
     </footer>
   </div>
