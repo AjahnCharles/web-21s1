@@ -10,7 +10,8 @@ app.set('view engine', 'hbs')
 app.engine('hbs', expHbs({
   extname: '.hbs',
   defaultLayout: false,
-  partialsDir: ['./views/partials', './views/layouts']
+  partialsDir: ['./views/partials', './views/layouts'],
+  helpers: { baseUrl: process.env.BASE_URL || 'https://asia-southeast2-proj1-cinema.cloudfunctions.net/demo/' }
 }))
 
 // Middleware
