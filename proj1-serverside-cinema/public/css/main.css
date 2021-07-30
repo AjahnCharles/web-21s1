@@ -4,7 +4,9 @@
   --color-link: #00f;
 }
 
-/* Foundation */
+/**************
+ * Foundation *
+ **************/
 
 * {
   font-family:
@@ -88,7 +90,9 @@ footer li {
   padding-top: 0.25rem;
 }
 
-/* Screening Priority */
+/**************
+ * Screenings *
+ **************/
 
 .screening-screen {
   font-size: 0.8rem;
@@ -107,14 +111,18 @@ footer li {
   font-size: 0.8rem;
 }
 
-/* Cinema List */
+/***************
+ * Cinema List *
+ ***************/
 
 .cinema-list li {
   font-size: 1.25rem;
   padding: 0.25rem;
 }
 
-/* Cinema Details */
+/******************
+ * Cinema Details *
+ ******************/
 
 .cinema-details-grid {
   display: grid;
@@ -134,9 +142,11 @@ footer li {
   object-position: 50% 45%;
 }
 
-/* Film List */
+/*************
+ * Film List *
+ *************/
 
-.film-grid {
+.film-list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   grid-gap: 1.25rem;
@@ -144,16 +154,18 @@ footer li {
   font-weight: bold;
 }
 
-.film-grid a {
+.film-list-grid a {
   color: var(--color-dark);
   text-decoration: none;
 }
 
-.film-grid img {
+.film-list-grid img {
   aspect-ratio: 2 / 3;
 }
 
-/* Film Details */
+/****************
+ * Film Details *
+ ****************/
 
 .film-details-layout {
   display: grid;
