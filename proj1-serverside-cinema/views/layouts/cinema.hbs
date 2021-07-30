@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{#if metaTitle}}{{ metaTitle }} - {{/if}}BECinema</title>
+  <link rel="stylesheet" href="{{ baseUrl }}css/main.css" />
+</head>
+
+<body>
+  <div class="pancake-stack">
+    <header>
+      <h1>BECinema</h1>
+      <div class="header-right">
+        <p>Phitsanulok</p>
+        <p>Chaz</p>
+      </div>
+    </header>
+    <main>
+      {{> @partial-block }}
+    </main>
+    <footer>
+      <ol>
+        <li><a href="/films">Film List</a></li>
+        <li><a href="/films/123">Film Details</a></li>
+        <li><a href="/cinemas">Cinema List</a></li>
+        <li><a href="/cinemas/123">Cinema Details</a></li>
+
+        <li><a href="/book">Booking Form</a></li>
+        <li><a href="/book">Booking Submit [POST]</a></li>
+        <li><a href="/tickets/123">Ticket Details</a></li>
+        <li><a href="/api/v1/tickets/123">Ticket Details (API)</a></li>
+      </ol>
+    </footer>
+  </div>
+</body>
+
+</html>

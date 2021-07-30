@@ -2,6 +2,8 @@ const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 
+const { index } = require('./features/index-controller')
+
 const app = express()
 
 // Templates
@@ -20,8 +22,19 @@ app.use(json())
 app.use(urlencoded({ extended: false }))
 
 // Routes
-// TODO
+app.get('/', index)
 
+// app.get('/films', filmList)
+// app.get('/films/:id', filmDetails)
+// app.get('/cinemas', cinemaList)
+// app.get('/cinemas/:id', cinemaDetails)
+
+// app.get('/book', bookingForm)
+// app.post('/book', bookingProcess)
+// app.get('/tickets/:id', ticketDetails)
+// app.get('/api/v1/tickets/:id', apiTicketDetails)
+
+// Export
 module.exports = {
   app
 }
