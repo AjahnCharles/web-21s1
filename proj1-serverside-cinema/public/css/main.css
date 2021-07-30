@@ -83,6 +83,13 @@ footer li {
   padding-top: 0.25rem;
 }
 
+/* Cinema List */
+
+.cinema-list li {
+  font-size: 1.25rem;
+  padding: 0.25rem;
+}
+
 /* Film List */
 
 .film-grid {
