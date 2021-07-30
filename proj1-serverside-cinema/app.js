@@ -4,7 +4,7 @@ const { json, urlencoded } = require('body-parser')
 
 const { index } = require('./features/index-controller')
 const { cinemaList, cinemaDetails } = require('./features/cinema-controller')
-const { filmList } = require('./features/film-controller')
+const { filmList, filmDetails } = require('./features/film-controller')
 
 const app = express()
 
@@ -29,7 +29,7 @@ app.get('/', index)
 app.get('/cinemas', cinemaList)
 app.get('/cinemas/:slug', cinemaDetails)
 app.get('/films', filmList)
-// app.get('/films/:slug', filmDetails)
+app.get('/films/:slug', filmDetails)
 
 // app.get('/book', bookingForm)
 // app.post('/book', bookingProcess)

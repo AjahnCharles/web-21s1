@@ -16,6 +16,31 @@ const filmList = async (req, res) => {
   res.render('film-list', { films })
 }
 
+const filmDetails = async (req, res) => {
+  // 1. Inputs
+  const { slug } = req.params
+  const cinemaSlugs = ['phitsanulok-bec-auditorium', 'phitsanulok-canal', 'phitsanulok-central']
+
+  // 2. Query
+  const queryFilm = db.collection('films').doc(slug).get()
+  const queryScreenings = db.collection('screenings')
+    .where('filmSlug', '==', slug)
+    .where('cinemaSlug', 'in', cinemaSlugs)
+    .orderBy('timeString')
+    .orderBy('cinemaSlug')
+    .orderBy('screen')
+    .get()
+
+  // 3. Response
+  const film = (await queryFilm).data()
+  const screenings = (await queryScreenings)
+    .docs
+    .map(doc => doc.data())
+
+  res.render('film-details', { film, screenings })
+}
+
 module.exports = {
-  filmList
+  filmList,
+  filmDetails
 }

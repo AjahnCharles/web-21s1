@@ -88,6 +88,25 @@ footer li {
   padding-top: 0.25rem;
 }
 
+/* Screening Priority */
+
+.screening-screen {
+  font-size: 0.8rem;
+}
+
+.screening-time {
+  font-size: 1.8rem;
+}
+
+.screening-title {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.screening-cinema {
+  font-size: 0.8rem;
+}
+
 /* Cinema List */
 
 .cinema-list li {
@@ -106,19 +125,6 @@ footer li {
 .cinema-details-grid a {
   color: var(--color-dark);
   text-decoration: none;
-}
-
-.screening-screen {
-  font-size: 0.8rem;
-}
-
-.screening-time {
-  font-size: 1.8rem;
-}
-
-.screening-title {
-  font-size: 1.1rem;
-  font-weight: 200;
 }
 
 .cinema-details-grid img {
@@ -144,5 +150,33 @@ footer li {
 }
 
 .film-grid img {
-  aspect-ratio: 800 / 1200;
+  aspect-ratio: 2 / 3;
+}
+
+/* Film Details */
+
+.film-details-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(12rem, 24rem);
+  grid-gap: 1rem;
+  align-items: start;
+}
+
+.film-details-layout img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.film-details-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.film-details-list a {
+  padding: 1rem;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  text-decoration: none;
 }
