@@ -26,10 +26,17 @@
         <li><a href="{{baseUrl}}cinemas">Cinema List</a></li>
         <li><a href="{{baseUrl}}cinemas/phitsanulok-bec-auditorium">Cinema Details</a></li>
         <li><a href="{{baseUrl}}films">Film List</a></li>
-        <li><a href="{{baseUrl}}films/dune-2021">Film Details</a></li>
+        <li><a href="{{baseUrl}}films/black-pink-movie">Film Details</a></li>
 
-        <li><a href="{{baseUrl}}book">Booking Form</a></li>
-        <li><a href="{{baseUrl}}book">Booking Submit [POST]</a></li>
+        <li><a href="{{baseUrl}}book?screening=phitsanulok-bec-auditorium,1,1628863200">Booking Form</a></li>
+        <li>
+          <form action="{{baseUrl}}book" method="POST">
+            <input type="hidden" name="seats" value="2A" />
+            <input type="hidden" name="seats" value="2B" />
+            <input type="hidden" name="screeningSlug" value="phitsanulok-bec-auditorium,1,1628863200" />
+            <input type="submit" value="Booking Submit [POST]" />
+          </form>
+        </li>
         <li><a href="{{baseUrl}}tickets/123">Ticket Details</a></li>
         <li><a href="{{baseUrl}}api/v1/tickets/123">Ticket Details (API)</a></li>
       </ol>

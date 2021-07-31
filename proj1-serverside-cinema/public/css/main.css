@@ -50,10 +50,22 @@ p {
 
 header,
 footer,
-header a,
-footer a {
+header a {
   background-color: var(--color-dark);
   color: var(--color-light);
+}
+
+footer a,
+footer input[type='submit'],
+footer button[type='submit'] {
+  font-size: 12pt;
+  color: var(--color-light);
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .pancake-stack {
