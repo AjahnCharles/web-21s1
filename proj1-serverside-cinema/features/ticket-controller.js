@@ -18,6 +18,29 @@ const ticketList = async (req, res) => {
   res.render('ticket-list', { tickets })
 }
 
+const apiTicketList = async (req, res) => {
+  try {
+  // 1. Inputs
+  // none
+
+    // 2. Query
+    const query = db.collection('users')
+      .doc('chaz')
+      .collection('tickets')
+      .get()
+    const tickets = (await query)
+      .docs
+      .map(doc => doc.data())
+      .map(({ date: dateTimestamp, createdAt: createdAtTimestamp, ...rest }) => ({ date: dateTimestamp.seconds * 1000, createdAt: createdAtTimestamp.seconds * 1000, ...rest }))
+
+    // 3. Response
+    res.json({ result: 'ok', tickets, count: tickets.length })
+  } catch (err) {
+    res.status(500).json({ result: 'error', tickets: [], count: 0 })
+  }
+}
+
 module.exports = {
-  ticketList
+  ticketList,
+  apiTicketList
 }
