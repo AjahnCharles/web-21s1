@@ -19,42 +19,68 @@ const films = [
   { slug: 'the-courier', title: 'The Courier' }
 ]
 
+const layouts = [
+  {
+    layout: 'medium',
+    seatsAvailable: [
+      '1B', '1C', '1F', '1G', '1J', '1K', '1N', '1O',
+      '2A', '2B', '2C', '2D', '2E', '2F', '2G', '2H', '2I', '2J', '2K', '2L', '2M', '2N', '2O', '2P',
+      '3A', '3B', '3C', '3D', '3E', '3F', '3G', '3H', '3I', '3J', '3K', '3L', '3M', '3N', '3O', '3P',
+      '4A', '4B', '4C', '4D', '4E', '4F', '4G', '4H', '4I', '4J', '4K', '4L', '4M', '4N', '4O', '4P',
+      '5A', '5B', '5E', '5F', '5G', '5H', '5I', '5J', '5K', '5L', '5O', '5P',
+      '6A', '6B', '6E', '6F', '6G', '6H', '6I', '6J', '6K', '6L', '6O', '6P'
+    ],
+    seatsUnavailable: []
+  },
+  {
+    layout: 'small',
+    seatsAvailable: [
+      '1A', '1B', '1D', '1E', '1G', '1H',
+      '2A', '2B', '2C', '2D', '2E', '2F', '2G', '2H',
+      '3A', '3B', '3C', '3D', '3E', '3F', '3G', '3H',
+      '4A', '4B', '4C', '4D', '4E', '4F', '4G', '4H'
+    ],
+    seatsUnavailable: []
+  }
+]
+
 const screeningsRaw = [
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628857800000, screen: '1' },
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628863200000, screen: '1' },
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628868600000, screen: '1' },
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'dune-2021', dateMillis: 1628859600000, screen: '2' },
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'dune-2021', dateMillis: 1628868600000, screen: '2' },
-  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'shang-chi', dateMillis: 1628861400000, screen: '3' },
-  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'shang-chi', dateMillis: 1628863200000, screen: '1' },
-  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'the-courier', dateMillis: 1628856000000, screen: '2' },
-  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'the-courier', dateMillis: 1628863200000, screen: '2' },
-  { cinemaSlug: 'phitsanulok-central', filmSlug: 'dune-2021', dateMillis: 1628856900000, screen: 'A' },
-  { cinemaSlug: 'phitsanulok-central', filmSlug: 'dune-2021', dateMillis: 1628865900000, screen: 'A' },
-  { cinemaSlug: 'phitsanulok-central', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: 'B' },
-  { cinemaSlug: 'phitsanulok-central', filmSlug: 'black-pink-movie', dateMillis: 1628858700000, screen: 'C' },
-  { cinemaSlug: 'phitsanulok-central', filmSlug: 'the-courier', dateMillis: 1628865900000, screen: 'C' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628856000000, screen: '1' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628865000000, screen: '1' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628857800000, screen: '2' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628866800000, screen: '2' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628856900000, screen: '3' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628865900000, screen: '3' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'black-pink-movie', dateMillis: 1628858700000, screen: '4' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'black-pink-movie', dateMillis: 1628865900000, screen: '4' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: '5' },
-  { cinemaSlug: 'bangkok-paragon', filmSlug: 'the-courier', dateMillis: 1628868600000, screen: '5' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: '11' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628861400000, screen: '12' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628863200000, screen: '13' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'black-pink-movie', dateMillis: 1628864100000, screen: '14' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'dune-2021', dateMillis: 1628867700000, screen: '11' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628868600000, screen: '12' },
-  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'the-courier', dateMillis: 1628869500000, screen: '13' }
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628857800000, screen: '1', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628863200000, screen: '1', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'black-pink-movie', dateMillis: 1628868600000, screen: '1', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'dune-2021', dateMillis: 1628859600000, screen: '2', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'dune-2021', dateMillis: 1628868600000, screen: '2', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-bec-auditorium', filmSlug: 'shang-chi', dateMillis: 1628861400000, screen: '3', layout: 'small' },
+  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'shang-chi', dateMillis: 1628863200000, screen: '1', layout: 'small' },
+  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'the-courier', dateMillis: 1628856000000, screen: '2', layout: 'small' },
+  { cinemaSlug: 'phitsanulok-canal', filmSlug: 'the-courier', dateMillis: 1628863200000, screen: '2', layout: 'small' },
+  { cinemaSlug: 'phitsanulok-central', filmSlug: 'dune-2021', dateMillis: 1628856900000, screen: 'A', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-central', filmSlug: 'dune-2021', dateMillis: 1628865900000, screen: 'A', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-central', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: 'B', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-central', filmSlug: 'black-pink-movie', dateMillis: 1628858700000, screen: 'C', layout: 'medium' },
+  { cinemaSlug: 'phitsanulok-central', filmSlug: 'the-courier', dateMillis: 1628865900000, screen: 'C', layout: 'medium' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628856000000, screen: '1', layout: 'medium' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628865000000, screen: '1', layout: 'medium' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628857800000, screen: '2', layout: 'medium' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628866800000, screen: '2', layout: 'medium' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628856900000, screen: '3', layout: 'small' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'dune-2021', dateMillis: 1628865900000, screen: '3', layout: 'small' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'black-pink-movie', dateMillis: 1628858700000, screen: '4', layout: 'small' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'black-pink-movie', dateMillis: 1628865900000, screen: '4', layout: 'small' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: '5', layout: 'small' },
+  { cinemaSlug: 'bangkok-paragon', filmSlug: 'the-courier', dateMillis: 1628868600000, screen: '5', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628859600000, screen: '11', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628861400000, screen: '12', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628863200000, screen: '13', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'black-pink-movie', dateMillis: 1628864100000, screen: '14', layout: 'medium' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'dune-2021', dateMillis: 1628867700000, screen: '11', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'shang-chi', dateMillis: 1628868600000, screen: '12', layout: 'small' },
+  { cinemaSlug: 'chiang-mai-maya', filmSlug: 'the-courier', dateMillis: 1628869500000, screen: '13', layout: 'small' }
 ]
 
 const cinemasBySlug = keyBy(cinemas, 'slug')
 const filmsBySlug = keyBy(films, 'slug')
+const layoutsByName = keyBy(layouts, 'layout')
 
 const getTimeString = (dateMillis) => {
   const date = new Date(dateMillis)
@@ -65,6 +91,7 @@ const getTimeString = (dateMillis) => {
 const screenings = screeningsRaw
   .map(({ dateMillis, ...screening }) => ({
     ...screening,
+    ...layoutsByName[screening.layout],
     date: firestore.Timestamp.fromMillis(dateMillis),
     timeString: getTimeString(dateMillis),
     cinemaName: cinemasBySlug[screening.cinemaSlug].name,

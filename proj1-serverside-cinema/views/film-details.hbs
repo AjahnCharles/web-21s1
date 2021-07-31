@@ -6,7 +6,7 @@
 
   <div class="film-details-list">
     {{#each screenings}}
-    <a href="/book?screening={{slug}}">
+    <a href="{{baseUrl}}book?screening={{slug}}">
       <span class="screening-time">{{ timeString }}</span><br />
       <span class="screening-cinema">{{ cinemaName }} - Screen {{ screen }}</span><br />
     </a>

@@ -1,0 +1,36 @@
+{{#> becinema screening }}
+<form method="post" action="{{baseUrl}}book">
+
+  <h1>Book Now!</h1>
+
+  <table class="booking-details">
+    <tr>
+      <td>Film</td>
+      <th>{{ filmName }}</th>
+    </tr>
+    <tr>
+      <td>Time</td>
+      <th>{{ timeString }}</th>
+    </tr>
+    <tr>
+      <td>Cinema</td>
+      <th>{{ cinemaName }}</th>
+    </tr>
+  </table>
+
+  <div class="booking-seats {{layout}}">
+    {{#each seatsAvailable}}
+    <input type="checkbox" name="seats" id="seats-{{this}}" />
+    <label for="seats-{{this}}" id="label-seats-{{this}}">{{this}}</label>
+    {{/each}}
+    {{#each seatsUnavailable}}
+    <input type="checkbox" name="seats" id="seats-{{this}}" disabled />
+    <label for="seats-{{this}}" id="label-seats-{{this}}">{{this}}</label>
+    {{/each}}
+  </div>
+
+  <input type="hidden" name="screeningSlug" value="{{slug}}" />
+  <button type="submit">Book</button>
+
+</form>
+{{/becinema}}

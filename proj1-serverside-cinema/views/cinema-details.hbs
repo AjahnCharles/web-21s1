@@ -4,7 +4,7 @@
 
 <div class="cinema-details-grid">
   {{#each screenings}}
-  <a href="/book?screening={{ slug }}">
+  <a href="{{baseUrl}}book?screening={{ slug }}">
     <img src="{{baseUrl}}images/{{filmSlug}}.jpg" /><br />
     <span class="screening-screen">Screen {{ screen }}</span><br />
     <span class="screening-time">{{ timeString }}</span><br />
