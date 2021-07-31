@@ -20,11 +20,11 @@
 
   <div class="booking-seats {{layout}}">
     {{#each seatsAvailable}}
-    <input type="checkbox" name="seats" id="seats-{{this}}" />
+    <input type="checkbox" name="seats" value="{{this}}" id="seats-{{this}}" />
     <label for="seats-{{this}}" id="label-seats-{{this}}">{{this}}</label>
     {{/each}}
     {{#each seatsUnavailable}}
-    <input type="checkbox" name="seats" id="seats-{{this}}" disabled />
+    <input type="checkbox" name="seats" value="{{this}}" id="seats-{{this}}" disabled />
     <label for="seats-{{this}}" id="label-seats-{{this}}">{{this}}</label>
     {{/each}}
   </div>

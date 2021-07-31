@@ -2,10 +2,12 @@ const express = require('express')
 const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 
+const { baseUrl } = require('./_services/base-url')
+
 const { index } = require('./features/index-controller')
 const { cinemaList, cinemaDetails } = require('./features/cinema-controller')
 const { filmList, filmDetails } = require('./features/film-controller')
-const { bookingForm } = require('./features/booking-controller')
+const { bookingForm, bookingProcess } = require('./features/booking-controller')
 
 const app = express()
 
@@ -16,7 +18,7 @@ app.engine('hbs', expHbs({
   extname: '.hbs',
   defaultLayout: false,
   partialsDir: ['./views/partials', './views/layouts'],
-  helpers: { baseUrl: process.env.BASE_URL || 'https://asia-southeast2-proj1-cinema.cloudfunctions.net/demo/' }
+  helpers: { baseUrl }
 }))
 
 // Middleware
@@ -33,7 +35,7 @@ app.get('/films', filmList)
 app.get('/films/:slug', filmDetails)
 
 app.get('/book', bookingForm)
-// app.post('/book', bookingProcess)
+app.post('/book', bookingProcess)
 // app.get('/tickets/:id', ticketDetails)
 // app.get('/api/v1/tickets/:id', apiTicketDetails)
 
