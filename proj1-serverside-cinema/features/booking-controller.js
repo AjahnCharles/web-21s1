@@ -18,33 +18,41 @@ const bookingProcess = async (req, res) => {
   // 1. Inputs
   const { screeningSlug, seats } = req.body
 
+  // 2. Query
+  // TODO: This should be a transaction
+  const queryScreening = db.collection('screenings')
+    .doc(screeningSlug)
+    .get()
+  const { cinemaName, filmName, date, timeString, screen } = (await queryScreening).data()
+
   const ticket = {
     screeningSlug,
+    cinemaName,
+    filmName,
+    date,
+    timeString,
+    screen,
     seats,
     createdAt: firestore.FieldValue.serverTimestamp()
   }
+  const queryCreateTicket = db.collection('users')
+    .doc('chaz')
+    .collection('tickets')
+    .doc()
+    .set(ticket)
 
   const screeningUpdate = {
     seatsAvailable: firestore.FieldValue.arrayRemove(...seats),
     seatsUnavailable: firestore.FieldValue.arrayUnion(...seats)
   }
-
-  // 2. Query
-  // TODO: This should be a transaction
-  const ticketRef = db.collection('users')
-    .doc('chaz')
-    .collection('tickets')
-    .doc()
-
-  const queryTicket = ticketRef.set(ticket)
-  const queryScreening = db.collection('screenings')
+  const queryUpdateScreening = db.collection('screenings')
     .doc(screeningSlug)
     .set(screeningUpdate, { merge: true })
 
   // 3. Response
-  await queryTicket
-  await queryScreening
-  res.redirect(`${baseUrl}tickets/${ticketRef.id}`)
+  await queryCreateTicket
+  await queryUpdateScreening
+  res.redirect(`${baseUrl}tickets`)
 }
 
 module.exports = {

@@ -8,6 +8,7 @@ const { index } = require('./features/index-controller')
 const { cinemaList, cinemaDetails } = require('./features/cinema-controller')
 const { filmList, filmDetails } = require('./features/film-controller')
 const { bookingForm, bookingProcess } = require('./features/booking-controller')
+const { ticketList } = require('./features/ticket-controller')
 
 const app = express()
 
@@ -36,8 +37,8 @@ app.get('/films/:slug', filmDetails)
 
 app.get('/book', bookingForm)
 app.post('/book', bookingProcess)
-// app.get('/tickets/:id', ticketDetails)
-// app.get('/api/v1/tickets/:id', apiTicketDetails)
+app.get('/tickets', ticketList)
+// app.get('/api/v1/tickets', apiTicketList)
 
 // Export
 module.exports = {

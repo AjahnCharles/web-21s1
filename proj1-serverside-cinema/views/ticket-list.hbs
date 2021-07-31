@@ -1,0 +1,23 @@
+{{#> becinema }}
+
+<h1>My Tickets</h1>
+
+<div class="ticket-list">
+
+  {{#each tickets}}
+  <div class="ticket">
+    <div>
+      <h1>{{ filmName }} - {{ timeString }}</h1>
+      <p>
+        {{ cinemaName }}<br />
+        Screen {{ screen }}<br />
+        Booking date: {{ createdAt }}
+      </p>
+    </div>
+    <div class="ticket-seats">{{ seats }}</div>
+  </div>
+  {{/each}}
+
+</div>
+
+{{/becinema}}
