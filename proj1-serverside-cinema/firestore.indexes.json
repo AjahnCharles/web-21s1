@@ -1,4 +1,63 @@
 {
-  "indexes": [],
+  "indexes": [
+    {
+      "collectionGroup": "cinemas",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "city",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "screenings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "cinemaSlug",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "filmSlug",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeString",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "cinemaName",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "screen",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "screenings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "cinemaSlug",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeString",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "screen",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
   "fieldOverrides": []
 }

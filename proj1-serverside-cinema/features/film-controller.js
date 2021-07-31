@@ -33,7 +33,7 @@ const filmDetails = async (req, res) => {
       .where('filmSlug', '==', slug)
       .where('cinemaSlug', 'in', cinemaSlugs)
       .orderBy('timeString')
-      .orderBy('cinemaSlug')
+      .orderBy('cinemaName')
       .orderBy('screen')
       .get()
 
