@@ -24,7 +24,7 @@ const heatLineup = async (req, res) => {
   res.render('heat-lineup', { competitors })
 }
 
-const recordDetails = async (req, res) => {
+const heatRecord = async (req, res) => {
   // 1. Inputs
   const slug = req.params.slug
 
@@ -33,15 +33,15 @@ const recordDetails = async (req, res) => {
 
   // 3. Response
   const record = (await query).data()
-  res.render('record-details', { record })
+  res.render('heat-record', { record })
 }
 
-const recordCreateForm = async (req, res) => {
+const heatRecordCreateForm = async (req, res) => {
   // 3. Response
-  res.render('record-create-form')
+  res.render('heat-record-create-form')
 }
 
-const recordCreate = async (req, res) => {
+const heatRecordCreate = async (req, res) => {
   // 1. Inputs
   const { slug, name, pb100, pb200, sb100, sb200 } = req.body
   const data = { slug, name, pb100, pb200, sb100, sb200 }
@@ -57,7 +57,7 @@ const recordCreate = async (req, res) => {
 module.exports = {
   heatList,
   heatLineup,
-  recordDetails,
-  recordCreateForm,
-  recordCreate
+  heatRecord,
+  heatRecordCreateForm,
+  heatRecordCreate
 }

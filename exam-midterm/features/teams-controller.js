@@ -24,7 +24,7 @@ const teamDetails = async (req, res) => {
   res.render('team-details', { team })
 }
 
-const medalTable = async (req, res) => {
+const teamMedals = async (req, res) => {
   // 1. Inputs
   // none
 
@@ -33,7 +33,7 @@ const medalTable = async (req, res) => {
 
   // 3. Response
   const teams = (await query).docs.map(doc => doc.data())
-  res.render('medal-table', { teams })
+  res.render('team-medals', { teams })
 }
 
 const teamCreateForm = async (req, res) => {
@@ -57,7 +57,7 @@ const teamCreate = async (req, res) => {
 module.exports = {
   teamList,
   teamDetails,
-  medalTable,
+  teamMedals,
   teamCreateForm,
   teamCreate
 }

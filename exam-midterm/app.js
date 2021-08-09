@@ -3,10 +3,10 @@ const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 
 const { index } = require('./features/index-controller')
-const { teamList, teamDetails, medalTable, teamCreateForm, teamCreate } = require('./features/teams-controller')
+const { teamList, teamDetails, teamMedals, teamCreateForm, teamCreate } = require('./features/teams-controller')
 const { athleteList, athleteDetails, athleteSchedule, athleteCreateForm, athleteCreate } = require('./features/athletes-controller')
 const { sportList, sportDetails, sportSchedule, sportCreateForm, sportCreate } = require('./features/sports-controller')
-const { heatList, heatLineup, recordDetails, recordCreateForm, recordCreate } = require('./features/heats-controller')
+const { heatList, heatLineup, heatRecord, heatRecordCreateForm, heatRecordCreate } = require('./features/heats-controller')
 
 const app = express()
 
@@ -34,7 +34,7 @@ app.get('/teams', teamList)
 app.post('/teams', teamCreate)
 app.get('/teams/new', teamCreateForm)
 app.get('/teams/:slug', teamDetails)
-app.get('/medals', medalTable)
+app.get('/team-medals', teamMedals)
 
 // [B] Athletes
 app.get('/athletes', athleteList)
@@ -50,19 +50,19 @@ app.get('/sports/new', sportCreateForm)
 app.get('/sports/:slug', sportDetails)
 app.get('/sports/:slug/schedule', sportSchedule)
 
-// [D] Heats -- not nested under /sports/:slug/ for simplicity
+// [D] Heats -- not nested under /events/:slug/ for simplicity
 app.get('/heats', heatList)
 app.get('/heats/:slug', heatLineup)
-app.post('/records', recordCreate)
-app.get('/records/new', recordCreateForm)
-app.get('/records/:slug', recordDetails)
+app.post('/records', heatRecordCreate)
+app.get('/records/new', heatRecordCreateForm)
+app.get('/records/:slug', heatRecord)
 
-// [E] Results -- not nested under /sports/:slug/ for simplicity
+// [E] Results -- not nested under /events/:slug/ for simplicity
 app.get('/results', index)
 app.post('/results', index)
 app.get('/results/new', index)
 app.get('/results/:slug', index)
-app.get('/sports/:slug/records', index)
+app.get('/world-records/:slug', index)
 
 // General
 app.get('/images/:catchall', (_req, res) => res.redirect('/images/404.jpg'))
