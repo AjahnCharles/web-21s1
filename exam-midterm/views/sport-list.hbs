@@ -1,0 +1,15 @@
+{{#>page}}
+
+<h1>Sports</h1>
+
+<ul>
+  {{#each sports}}
+  <li>
+    <a href="/sports/{{slug}}">
+      <img src="/images/sports/{{slug}}.png" height="60" /> {{name}}
+    </a>
+  </li>
+  {{/each}}
+</ul>
+
+{{/page}}

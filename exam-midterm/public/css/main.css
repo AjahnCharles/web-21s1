@@ -106,6 +106,10 @@ header h1 {
   padding: 1rem 0 1rem 1rem;
 }
 
+header img {
+  filter: invert(1);
+}
+
 header h1 {
   flex-grow: 1;
 }
@@ -130,7 +134,7 @@ footer {
   font-size: 0.75rem;
   line-height: 1rem;
   padding: 2rem;
-  background-color: #03c;
+  background-color: #039;
   color: #fff;
 }
 

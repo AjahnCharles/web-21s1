@@ -1,16 +1,16 @@
 {{#>page}}
 
-<h1>Athlete Schedule</h1>
+<h1>Sport Schedule</h1>
 
 <table>
   <tr>
-    <th>Date</th>
     <th>Event</th>
+    <th>Date</th>
   </tr>
-  {{#each heats}}
+  {{#each events}}
   <tr>
+    <td>{{ name }}</td>
     <td>{{ dateString }}</td>
-    <td>{{ event }}</td>
   </tr>
   {{/each}}
 </table>

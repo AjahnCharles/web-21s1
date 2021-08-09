@@ -3,8 +3,9 @@ const expHbs = require('express-handlebars')
 const { json, urlencoded } = require('body-parser')
 
 const { index } = require('./features/index-controller')
-const { teamList, teamDetails, medalTable, teamCreate, teamCreateForm } = require('./features/teams-controller')
-const { athleteList, athleteCreate, athleteCreateForm, athleteDetails, athleteSchedule } = require('./features/athletes-controller')
+const { teamList, teamDetails, medalTable, teamCreateForm, teamCreate } = require('./features/teams-controller')
+const { athleteList, athleteDetails, athleteSchedule, athleteCreateForm, athleteCreate } = require('./features/athletes-controller')
+const { sportList, sportDetails, sportSchedule, sportCreateForm, sportCreate } = require('./features/sports-controller')
 
 const app = express()
 
@@ -42,11 +43,11 @@ app.get('/athletes/:slug', athleteDetails)
 app.get('/athletes/:slug/schedule', athleteSchedule)
 
 // [C] Sports
-app.get('/sports', index)
-app.post('/sports', index)
-app.get('/sports/new', index)
-app.get('/sports/:slug', index)
-app.get('/sports/:slug/schedule', index)
+app.get('/sports', sportList)
+app.post('/sports', sportCreate)
+app.get('/sports/new', sportCreateForm)
+app.get('/sports/:slug', sportDetails)
+app.get('/sports/:slug/schedule', sportSchedule)
 
 // [D] Heats -- not nested under /sports/:slug/ for simplicity
 app.get('/heats', index)
