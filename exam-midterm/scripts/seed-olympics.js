@@ -82,47 +82,94 @@ const events = [
  * - /athletes/hsing-chun-kuo/schedule
  * - /athletes/ahmed-hafnaoui/schedule
  * - /athletes/panipak-wongpattanakit/schedule
- * - /sports/100m-f/heats
+ * - /sports/f100m/heats
  **/
 const heats = [
-  { slug: 'f100m-r1h1', sportSlug: 'sprinting', date: 2107301215, dateString: 'Fri 30 Jul 12:15', event: 'Women\'s 100m Round 1 Heat 1', athleteSlugs: [] },
-  { slug: 'f100m-r1h2', sportSlug: 'sprinting', date: 2107301223, dateString: 'Fri 30 Jul 12:23', event: 'Women\'s 100m Round 1 Heat 2', athleteSlugs: [] },
-  { slug: 'f100m-r1h3', sportSlug: 'sprinting', date: 2107301231, dateString: 'Fri 30 Jul 12:31', event: 'Women\'s 100m Round 1 Heat 3', athleteSlugs: [] },
-  { slug: 'f100m-r1h4', sportSlug: 'sprinting', date: 2107301239, dateString: 'Fri 30 Jul 12:39', event: 'Women\'s 100m Round 1 Heat 4', athleteSlugs: [] },
-  { slug: 'f100m-r1h5', sportSlug: 'sprinting', date: 2107301247, dateString: 'Fri 30 Jul 12:47', event: 'Women\'s 100m Round 1 Heat 5', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f100m-r1h6', sportSlug: 'sprinting', date: 2107301255, dateString: 'Fri 30 Jul 12:55', event: 'Women\'s 100m Round 1 Heat 6', athleteSlugs: [] },
-  { slug: 'f100m-r1h7', sportSlug: 'sprinting', date: 2107301303, dateString: 'Fri 30 Jul 13:03', event: 'Women\'s 100m Round 1 Heat 7', athleteSlugs: [] },
-  { slug: 'f100m-sf1', sportSlug: 'sprinting', date: 2107311915, dateString: 'Sat 31 Jul 19:15', event: 'Women\'s 100m Semifinal 1', athleteSlugs: [] },
-  { slug: 'f100m-sf2', sportSlug: 'sprinting', date: 2107311923, dateString: 'Sat 31 Jul 19:23', event: 'Women\'s 100m Semifinal 2', athleteSlugs: [] },
-  { slug: 'f100m-sf3', sportSlug: 'sprinting', date: 2107311931, dateString: 'Sat 31 Jul 19:31', event: 'Women\'s 100m Semifinal 3', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f100m-f', sportSlug: 'sprinting', date: 2107312150, dateString: 'Sat 31 Jul 21:50', event: 'Women\'s 100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-r1-h2', sportSlug: 'sprinting', date: 2108021038, dateString: 'Mon 02 Aug 10:38', event: 'Women\'s 200m Round 1 Heat 2', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-sf1', sportSlug: 'sprinting', date: 2108021925, dateString: 'Mon 02 Aug 19:25', event: 'Women\'s 200m Semifinal 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-f', sportSlug: 'sprinting', date: 2108032150, dateString: 'Tue 03 Aug 21:50', event: 'Women\'s 200m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f4x100m-r1h1', sportSlug: 'sprinting', date: 2108051000, dateString: 'Thu 05 Aug 10:00', event: 'Women\'s 4x100m Round 1 Heat 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f4x100m-f', sportSlug: 'sprinting', date: 2108062230, dateString: 'Fri 06 Aug 22:30', event: 'Women\'s 4x100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'fagym-team', sportSlug: 'gymnastics', date: 2107271945, dateString: 'Tue 27 Jul 19:45', event: 'Women\'s Gymnastic Team Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-all', sportSlug: 'gymnastics', date: 2107291950, dateString: 'Thu 29 Jul 19:50', event: 'Women\'s Gymnastic All-Around Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-uneven', sportSlug: 'gymnastics', date: 2108011924, dateString: 'Sun 01 Aug 19:24', event: 'Women\'s Gymnastic Uneven Bars Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-beam', sportSlug: 'gymnastics', date: 2108031750, dateString: 'Tue 03 Aug 17:50', event: 'Women\'s Gymnastic Balance Beam Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'f59wgt-f', sportSlug: 'weight-lifting', date: 2107271550, dateString: 'Tue 27 Jul 15:50', event: 'Women\'s Weight-Lifting 59kg Final', athleteSlugs: ['hsing-chun-kuo'] },
-  { slug: 'm400mfs-h4', sportSlug: 'swimming', date: 2107241954, dateString: 'Sat 24 Jul 19:54', event: 'Men\'s 400m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'm400mfs-f', sportSlug: 'swimming', date: 2107251052, dateString: 'Sun 25 Jul 10:52', event: 'Men\'s 400m Freestyle Final', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'm800mfs-h4', sportSlug: 'swimming', date: 2107272046, dateString: 'Tue 27 Jul 20:46', event: 'Men\'s 800m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'f49tkd-ro16', sportSlug: 'taekwondo', date: 2107241138, dateString: 'Sat 24 Jul 11:38', event: 'Women\'s Taekwondo 49kg Round of 16', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-qf', sportSlug: 'taekwondo', date: 2107241430, dateString: 'Sat 24 Jul 14:30', event: 'Women\'s Taekwondo 49kg Quarterfinal', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-sf', sportSlug: 'taekwondo', date: 2107241600, dateString: 'Sat 24 Jul 16:00', event: 'Women\'s Taekwondo 49kg Semifinal', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-f', sportSlug: 'taekwondo', date: 21072422130, dateString: 'Sat 24 Jul 21:30', event: 'Women\'s Taekwondo 49kg Final', athleteSlugs: ['panipak-wongpattanakit'] }
+  { slug: 'f100m-sf1', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311915, dateString: 'Sat 31 Jul 19:15', round: 'Women\'s 100m Semifinal 1', athleteSlugs: [] },
+  { slug: 'f100m-sf2', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311923, dateString: 'Sat 31 Jul 19:23', round: 'Women\'s 100m Semifinal 2', athleteSlugs: [] },
+  { slug: 'f100m-sf3', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311931, dateString: 'Sat 31 Jul 19:31', round: 'Women\'s 100m Semifinal 3', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f100m-f', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107312150, dateString: 'Sat 31 Jul 21:50', round: 'Women\'s 100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-r1-h2', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021038, dateString: 'Mon 02 Aug 10:38', round: 'Women\'s 200m Round 1 Heat 2', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-sf1', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021925, dateString: 'Mon 02 Aug 19:25', round: 'Women\'s 200m Semifinal 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-f', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108032150, dateString: 'Tue 03 Aug 21:50', round: 'Women\'s 200m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f4x100m-r1h1', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108051000, dateString: 'Thu 05 Aug 10:00', round: 'Women\'s 4x100m Round 1 Heat 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f4x100m-f', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108062230, dateString: 'Fri 06 Aug 22:30', round: 'Women\'s 4x100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'fagym-team', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107271945, dateString: 'Tue 27 Jul 19:45', round: 'Women\'s Gymnastic Team Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-all', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107291950, dateString: 'Thu 29 Jul 19:50', round: 'Women\'s Gymnastic All-Around Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-uneven', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108011924, dateString: 'Sun 01 Aug 19:24', round: 'Women\'s Gymnastic Uneven Bars Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-beam', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108031750, dateString: 'Tue 03 Aug 17:50', round: 'Women\'s Gymnastic Balance Beam Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'f59lift-f', eventSlug: 'f59lift', sportSlug: 'weight-lifting', date: 2107271550, dateString: 'Tue 27 Jul 15:50', round: 'Women\'s Weight-Lifting 59kg Final', athleteSlugs: ['hsing-chun-kuo'] },
+  { slug: 'm400mfs-h4', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107241954, dateString: 'Sat 24 Jul 19:54', round: 'Men\'s 400m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'm400mfs-f', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107251052, dateString: 'Sun 25 Jul 10:52', round: 'Men\'s 400m Freestyle Final', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'm800mfs-h4', eventSlug: 'm800mfs', sportSlug: 'swimming', date: 2107272046, dateString: 'Tue 27 Jul 20:46', round: 'Men\'s 800m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'f49tkd-ro16', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241138, dateString: 'Sat 24 Jul 11:38', round: 'Women\'s Taekwondo 49kg Round of 16', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-qf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241430, dateString: 'Sat 24 Jul 14:30', round: 'Women\'s Taekwondo 49kg Quarterfinal', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-sf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241600, dateString: 'Sat 24 Jul 16:00', round: 'Women\'s Taekwondo 49kg Semifinal', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-f', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 21072422130, dateString: 'Sat 24 Jul 21:30', round: 'Women\'s Taekwondo 49kg Final', athleteSlugs: ['panipak-wongpattanakit'] }
+]
+
+const competitors = {
+  'f100m-sf1': [
+    { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
+    { slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 6 },
+    { slug: 'dina-asher-smith', name: 'Dina Asher-Smith', teamSlug: 'great-britain', lane: 7 },
+    { slug: 'jenna-prandini', name: 'Jenna Prandini', teamSlug: 'usa', lane: 8 },
+    { slug: 'khamica-bingham', name: 'Khamica Bingham', teamSlug: 'other', lane: 2 },
+    { slug: 'tynia-gaither', name: 'Tynia Gaither', teamSlug: 'other', lane: 3 },
+    { slug: 'tatjana-pinto', name: 'Tatjana Pinto', teamSlug: 'germany', lane: 9 },
+    { slug: 'mudhawi-alshammari', name: 'Mudhawi Alshammari', teamSlug: 'other', lane: 3 }
+  ],
+  'f100m-sf2': [
+    { slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 5 },
+    { slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 6 },
+    { slug: 'michelle-lee-ahye', name: 'Michelle-Lee Ahye', teamSlug: 'other', lane: 4 },
+    { slug: 'alexandra-burghardt', name: 'Alexandra Burghardt', teamSlug: 'germany', lane: 7 },
+    { slug: 'javianne-oliver', name: 'Javianne Oliver', teamSlug: 'usa', lane: 9 },
+    { slug: 'crystal-emmanuel', name: 'Crystal Emmanuel', teamSlug: 'other', lane: 2 },
+    { slug: 'manqi-ge', name: 'Manqi Ge', teamSlug: 'china', lane: 3 },
+    { slug: 'asha-philip', name: 'Asha Philip', teamSlug: 'great-britain', lane: 8 }
+  ],
+  'f100m-sf3': [
+    { slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
+    { slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 7 },
+    { slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 6 },
+    { slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 4 },
+    { slug: 'nzubechi-grace-nwokocha', name: 'Nzubechi Grace Nwokocha', teamSlug: 'other', lane: 9 },
+    { slug: 'gina-bass', name: 'Gina Bass', teamSlug: 'other', lane: 2 },
+    { slug: 'murielle-ahoure', name: 'Murielle Ahoure', teamSlug: 'other', lane: 8 },
+    { slug: 'anna-bongiorni', name: 'Anna Bongiorni', teamSlug: 'italy', lane: 3 }
+  ],
+  'f100m-f': [
+    { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
+    { slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
+    { slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 7 },
+    { slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 6 },
+    { slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 8 },
+    { slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 9 },
+    { slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 3 },
+    { slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 2 }
+  ]
+}
+
+const records = [
+  { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', pb100: '10.61', pb200: '21.53', sb100: '10.61', sb200: '21.53' },
+  { slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', pb100: '10.63', pb200: '21.79', sb100: '10.63', sb200: '21.79' },
+  { slug: 'shericka-jackson', name: 'Shericka Jackson', pb100: '10.76', pb200: '21.82', sb100: '10.76', sb200: '21.82' },
+  { slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', pb100: '10.78', pb200: '22.08', sb100: '10.78', sb200: '22.11' },
+  { slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', pb100: '10.95', pb200: '22.26', sb100: '10.95', sb200: '22.26' },
+  { slug: 'teahna-daniels', name: 'Teahna Daniels', pb100: '10.84', pb200: '22.51', sb100: '10.84', sb200: '22.54' },
+  { slug: 'daryll-neita', name: 'Daryll Neita', pb100: '10.96', pb200: '23.06', sb100: '10.96', sb200: '23.06' }
 ]
 
 const main = async () => {
   // Setup a write-only batch
   const batch = db.batch()
 
-  // Clear user-created data
+  // Delete user-created data
   batch.delete(db.collection('teams').doc('thailand'))
   batch.delete(db.collection('athletes').doc('panipak-wongpattanakit'))
   batch.delete(db.collection('sports').doc('taekwondo'))
+  batch.delete(db.collection('records').doc('ajla-del-ponte'))
 
   // Create example data
   teams.forEach(data => batch.set(db.collection('teams').doc(data.slug), data))
@@ -130,10 +177,12 @@ const main = async () => {
   sports.forEach(data => batch.set(db.collection('sports').doc(data.slug), data))
   events.forEach(data => batch.set(db.collection('events').doc(data.slug), data))
   heats.forEach(data => batch.set(db.collection('heats').doc(data.slug), data))
+  Object.entries(competitors).forEach(([heatSlug, dataset]) => dataset.forEach(data => batch.set(db.collection('heats').doc(heatSlug).collection('competitors').doc(data.slug), data)))
+  records.forEach(data => batch.set(db.collection('records').doc(data.slug), data))
 
   // Save data to Firestore
   await batch.commit()
-  console.log(`Saved to ${admin.apps[0].options.credential.projectId}\n- ${teams.length} Teams\n- ${athletes.length} Athletes\n- ${sports.length} Sports\n- ${events.length} Events\n- ${heats.length} Heats`)
+  console.log(`Saved to ${admin.apps[0].options.credential.projectId}\n- ${teams.length} Teams\n- ${athletes.length} Athletes\n- ${sports.length} Sports\n- ${events.length} Events\n- ${heats.length} Heats\n- ${Object.keys(competitors).length} Line-ups\n- ${records.length} Records`)
   process.exit(0)
 }
 

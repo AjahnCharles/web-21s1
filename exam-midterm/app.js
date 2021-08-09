@@ -6,6 +6,7 @@ const { index } = require('./features/index-controller')
 const { teamList, teamDetails, medalTable, teamCreateForm, teamCreate } = require('./features/teams-controller')
 const { athleteList, athleteDetails, athleteSchedule, athleteCreateForm, athleteCreate } = require('./features/athletes-controller')
 const { sportList, sportDetails, sportSchedule, sportCreateForm, sportCreate } = require('./features/sports-controller')
+const { heatList, heatLineup, recordDetails, recordCreateForm, recordCreate } = require('./features/heats-controller')
 
 const app = express()
 
@@ -50,11 +51,11 @@ app.get('/sports/:slug', sportDetails)
 app.get('/sports/:slug/schedule', sportSchedule)
 
 // [D] Heats -- not nested under /sports/:slug/ for simplicity
-app.get('/heats', index)
-app.post('/heats', index)
-app.get('/heats/new', index)
-app.get('/heats/:slug', index)
-app.get('/athletes/:slug/records', index)
+app.get('/heats', heatList)
+app.get('/heats/:slug', heatLineup)
+app.post('/records', recordCreate)
+app.get('/records/new', recordCreateForm)
+app.get('/records/:slug', recordDetails)
 
 // [E] Results -- not nested under /sports/:slug/ for simplicity
 app.get('/results', index)

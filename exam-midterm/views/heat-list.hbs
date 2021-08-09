@@ -1,0 +1,15 @@
+{{#>page}}
+
+<h1>Heats</h1>
+
+<ul>
+  {{#each heats}}
+  <li>
+    <a href="/heats/{{slug}}">
+      [{{ dateString }}] {{ round }}
+    </a>
+  </li>
+  {{/each}}
+</ul>
+
+{{/page}}
