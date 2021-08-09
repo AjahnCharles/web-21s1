@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Charles Allen",
+  "license": "UNLICENSED",
+  "private": true,
   "main": "index-cf.js",
   "engines": {
     "node": "14"
