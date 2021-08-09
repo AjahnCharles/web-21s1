@@ -1,0 +1,34 @@
+{{#>page}}
+
+<h1>Create Team</h1>
+
+<form method="post" action="/teams">
+  <label for="team-slug">Slug</label>
+  <input type="text" id="team-slug" name="slug" />
+
+  <label for="team-name">Name</label>
+  <input type="text" id="team-name" name="name" />
+
+  <label for="team-rank">Rank</label>
+  <input type="number" id="team-rank" name="rank" />
+
+  <label for="team-first">1st-place medals</label>
+  <input type="number" id="team-first" name="countFirst" />
+
+  <label for="team-first">2nd-place medals</label>
+  <input type="number" id="team-first" name="countSecond" />
+
+  <label for="team-first">3rd-place medals</label>
+  <input type="number" id="team-first" name="countThird" />
+
+  <label for="team-total">Total medals</label>
+  <input type="number" id="team-total" name="countTotal" />
+
+  <label for="team-introduction">Introduction</label>
+  <textarea id="team-introduction" name="introduction"></textarea>
+
+  <button type="submit">Create Team</button>
+
+</form>
+
+{{/page}}
