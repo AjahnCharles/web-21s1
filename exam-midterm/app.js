@@ -4,6 +4,7 @@ const { json, urlencoded } = require('body-parser')
 
 const { index } = require('./features/index-controller')
 const { teamList, teamDetails, medalTable, teamCreate, teamCreateForm } = require('./features/teams-controller')
+const { athleteList, athleteCreate, athleteCreateForm, athleteDetails, athleteSchedule } = require('./features/athletes-controller')
 
 const app = express()
 
@@ -34,11 +35,11 @@ app.get('/teams/:slug', teamDetails)
 app.get('/medals', medalTable)
 
 // [B] Athletes
-app.get('/athletes', index)
-app.post('/athletes', index)
-app.get('/athletes/new', index)
-app.get('/athletes/:slug', index)
-app.get('/athletes/:slug/schedule', index)
+app.get('/athletes', athleteList)
+app.post('/athletes', athleteCreate)
+app.get('/athletes/new', athleteCreateForm)
+app.get('/athletes/:slug', athleteDetails)
+app.get('/athletes/:slug/schedule', athleteSchedule)
 
 // [C] Sports
 app.get('/sports', index)

@@ -1,0 +1,15 @@
+{{#>page}}
+
+<h1>Athletes</h1>
+
+<ul>
+  {{#each athletes}}
+  <li>
+    <a href="/athletes/{{slug}}">
+      {{name}} ({{ team }})
+    </a>
+  </li>
+  {{/each}}
+</ul>
+
+{{/page}}

@@ -1,0 +1,18 @@
+{{#>page}}
+
+<h1>Schedule</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Event</th>
+  </tr>
+  {{#each heats}}
+  <tr>
+    <td>{{ dateString }}</td>
+    <td>{{ event }}</td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}
