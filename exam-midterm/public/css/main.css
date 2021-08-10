@@ -135,7 +135,7 @@ main ul li {
   line-height: 1.5rem;
 }
 
-main li::marker {
+main ul li::marker {
   font-size: 1.75rem;
 }
 

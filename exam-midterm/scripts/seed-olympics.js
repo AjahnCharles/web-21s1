@@ -23,21 +23,24 @@ const athletes = [
 ]
 
 const sports = [
-  { slug: 'sprinting', name: 'Sprinting', description: 'Run as fast as you can! Run as fast as anyone can! Sprinting includes 100m, 200m, 400m, and relays. These events are the flag-bearers of athletics.' },
-  { slug: 'gymnastics', name: 'Gymnastics', description: 'Gymnastics covers 3 disciplines: Artistic Gymnastics, Rhythmic Gymnastics, and Trampoline. There are 13 distinct events, including individual, team, and all-around.' },
-  { slug: 'weight-lifting', name: 'Weight Lifting', description: 'There are 2 standard techniques for weight-lifting: the "snatch" and the "clean and jerk". Competitors are grouped by bodyweight. Each competitor has 3 attempts at each technique, keeping their best effort.' },
-  { slug: 'swimming', name: 'Swimming', description: 'Running, but mostly with your hands, and in the water. You probably already knew what swimming was... this sport spans sprinting up to marathon, and also team events.' }
+  { slug: 'sprinting', name: 'Sprinting', eventCount: 11, description: 'Run as fast as you can! Run as fast as anyone can! Sprinting includes 100m, 200m, 400m, and relays. These events are the flag-bearers of athletics.' },
+  { slug: 'gymnastics', name: 'Gymnastics', eventCount: 13, description: 'Gymnastics covers 3 disciplines: Artistic Gymnastics, Rhythmic Gymnastics, and Trampoline. There are 13 distinct events, including individual, team, and all-around.' },
+  { slug: 'weight-lifting', name: 'Weight Lifting', eventCount: 14, description: 'There are 2 standard techniques for weight-lifting: the "snatch" and the "clean and jerk". Competitors are grouped by bodyweight. Each competitor has 3 attempts at each technique, keeping their best effort.' },
+  { slug: 'swimming', name: 'Swimming', eventCount: 35, description: 'Running, but mostly with your hands, and in the water. You probably already knew what swimming was... this sport spans sprinting up to marathon, and also team events.' }
 ]
 
 const events = [
   { slug: 'f100m', sportSlug: 'sprinting', name: 'Women\'s 100m', dateStart: 210730, dateEnd: 210731, dateString: 'Fri 30 Jul - Sat 31 Jul' },
   { slug: 'f200m', sportSlug: 'sprinting', name: 'Women\'s 200m', dateStart: 210802, dateEnd: 210803, dateString: 'Mon 02 Aug - Tue 03 Aug' },
   { slug: 'f400m', sportSlug: 'sprinting', name: 'Women\'s 400m', dateStart: 210803, dateEnd: 210806, dateString: 'Tue 03 Aug - Fri 06 Aug' },
-  { slug: 'f4x100m', sportSlug: 'sprinting', name: 'Women\'s 4x100m', dateStart: 210805, dateEnd: 210806, dateString: 'Thu 05 Aug - Fri 06 Aug' },
+  { slug: 'f4x100m', sportSlug: 'sprinting', name: 'Women\'s 4x100m Relay', dateStart: 210805, dateEnd: 210806, dateString: 'Thu 05 Aug - Fri 06 Aug' },
+  { slug: 'f4x400m', sportSlug: 'sprinting', name: 'Women\'s 4x400m Relay', dateStart: 210805, dateEnd: 210807, dateString: 'Thu 05 Aug - Sat 07 Aug' },
   { slug: 'm100m', sportSlug: 'sprinting', name: 'Men\'s 100m', dateStart: 210731, dateEnd: 210801, dateString: 'Sat 31 Jul - Sun 01 Aug' },
   { slug: 'm200m', sportSlug: 'sprinting', name: 'Men\'s 200m', dateStart: 210803, dateEnd: 210804, dateString: 'Tue 03 Aug - Wed 04 Aug' },
   { slug: 'm400m', sportSlug: 'sprinting', name: 'Men\'s 400m', dateStart: 210801, dateEnd: 210805, dateString: 'Sun 01 Aug - Thu 05 Aug' },
-  { slug: 'm4x100m', sportSlug: 'sprinting', name: 'Men\'s 4x100m', dateStart: 210805, dateEnd: 210806, dateString: 'Thu 05 Aug - Fri 06 Aug' },
+  { slug: 'm4x100m', sportSlug: 'sprinting', name: 'Men\'s 4x100m Relay', dateStart: 210805, dateEnd: 210806, dateString: 'Thu 05 Aug - Fri 06 Aug' },
+  { slug: 'm4x400m', sportSlug: 'sprinting', name: 'Men\'s 4x400m Relay', dateStart: 210806, dateEnd: 210807, dateString: 'Fri 06 Aug - Sat 07 Aug' },
+  { slug: 'x4x400m', sportSlug: 'sprinting', name: 'Mixed\'s 4x400m Relay', dateStart: 210730, dateEnd: 210731, dateString: 'Fri 30 Jul - Sat 31 Jul' },
   { slug: 'fagym', sportSlug: 'gymnastics', name: 'Women\'s Artistic Gymnastics', dateStart: 210725, dateEnd: 210803, dateString: 'Sun 25 Jul - Tue 03 Aug' },
   { slug: 'frgym', sportSlug: 'gymnastics', name: 'Women\'s Rhythmic Gymnastics', dateStart: 210806, dateEnd: 210808, dateString: 'Fri 07 Aug - Sun 08 Aug' },
   { slug: 'wtgym', sportSlug: 'gymnastics', name: 'Women\'s Trampoline Gymnastics', dateStart: 210730, dateEnd: 210730, dateString: 'Fri 30 Jul' },
@@ -85,27 +88,27 @@ const events = [
  * - /sports/f100m/heats
  **/
 const heats = [
-  { slug: 'f100m-sf1', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311915, dateString: 'Sat 31 Jul 19:15', round: 'Women\'s 100m Semifinal 1', athleteSlugs: [] },
-  { slug: 'f100m-sf2', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311923, dateString: 'Sat 31 Jul 19:23', round: 'Women\'s 100m Semifinal 2', athleteSlugs: [] },
-  { slug: 'f100m-sf3', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311931, dateString: 'Sat 31 Jul 19:31', round: 'Women\'s 100m Semifinal 3', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f100m-f', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107312150, dateString: 'Sat 31 Jul 21:50', round: 'Women\'s 100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-r1-h2', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021038, dateString: 'Mon 02 Aug 10:38', round: 'Women\'s 200m Round 1 Heat 2', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-sf1', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021925, dateString: 'Mon 02 Aug 19:25', round: 'Women\'s 200m Semifinal 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f200m-f', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108032150, dateString: 'Tue 03 Aug 21:50', round: 'Women\'s 200m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f4x100m-r1h1', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108051000, dateString: 'Thu 05 Aug 10:00', round: 'Women\'s 4x100m Round 1 Heat 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'f4x100m-f', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108062230, dateString: 'Fri 06 Aug 22:30', round: 'Women\'s 4x100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
-  { slug: 'fagym-team', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107271945, dateString: 'Tue 27 Jul 19:45', round: 'Women\'s Gymnastic Team Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-all', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107291950, dateString: 'Thu 29 Jul 19:50', round: 'Women\'s Gymnastic All-Around Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-uneven', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108011924, dateString: 'Sun 01 Aug 19:24', round: 'Women\'s Gymnastic Uneven Bars Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'fagym-beam', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108031750, dateString: 'Tue 03 Aug 17:50', round: 'Women\'s Gymnastic Balance Beam Final', athleteSlugs: ['sunisa-lee'] },
-  { slug: 'f59lift-f', eventSlug: 'f59lift', sportSlug: 'weight-lifting', date: 2107271550, dateString: 'Tue 27 Jul 15:50', round: 'Women\'s Weight-Lifting 59kg Final', athleteSlugs: ['hsing-chun-kuo'] },
-  { slug: 'm400mfs-h4', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107241954, dateString: 'Sat 24 Jul 19:54', round: 'Men\'s 400m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'm400mfs-f', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107251052, dateString: 'Sun 25 Jul 10:52', round: 'Men\'s 400m Freestyle Final', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'm800mfs-h4', eventSlug: 'm800mfs', sportSlug: 'swimming', date: 2107272046, dateString: 'Tue 27 Jul 20:46', round: 'Men\'s 800m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
-  { slug: 'f49tkd-ro16', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241138, dateString: 'Sat 24 Jul 11:38', round: 'Women\'s Taekwondo 49kg Round of 16', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-qf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241430, dateString: 'Sat 24 Jul 14:30', round: 'Women\'s Taekwondo 49kg Quarterfinal', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-sf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241600, dateString: 'Sat 24 Jul 16:00', round: 'Women\'s Taekwondo 49kg Semifinal', athleteSlugs: ['panipak-wongpattanakit'] },
-  { slug: 'f49tkd-f', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 21072422130, dateString: 'Sat 24 Jul 21:30', round: 'Women\'s Taekwondo 49kg Final', athleteSlugs: ['panipak-wongpattanakit'] }
+  { slug: 'f100m-sf1', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311915, dateString: 'Sat 31 Jul', timeString: '19:15', round: 'Women\'s 100m Semifinal 1', athleteSlugs: [] },
+  { slug: 'f100m-sf2', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311923, dateString: 'Sat 31 Jul', timeString: '19:23', round: 'Women\'s 100m Semifinal 2', athleteSlugs: [] },
+  { slug: 'f100m-sf3', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107311931, dateString: 'Sat 31 Jul', timeString: '19:31', round: 'Women\'s 100m Semifinal 3', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f100m-f', eventSlug: 'f100m', sportSlug: 'sprinting', date: 2107312150, dateString: 'Sat 31 Jul', timeString: '21:50', round: 'Women\'s 100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-r1-h2', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021038, dateString: 'Mon 02 Aug', timeString: '10:38', round: 'Women\'s 200m Round 1 Heat 2', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-sf1', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108021925, dateString: 'Mon 02 Aug', timeString: '19:25', round: 'Women\'s 200m Semifinal 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f200m-f', eventSlug: 'f200m', sportSlug: 'sprinting', date: 2108032150, dateString: 'Tue 03 Aug', timeString: '21:50', round: 'Women\'s 200m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f4x100m-r1h1', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108051000, dateString: 'Thu 05 Aug', timeString: '10:00', round: 'Women\'s 4x100m Round 1 Heat 1', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'f4x100m-f', eventSlug: 'f4x100m', sportSlug: 'sprinting', date: 2108062230, dateString: 'Fri 06 Aug', timeString: '22:30', round: 'Women\'s 4x100m Final', athleteSlugs: ['shelly-ann-fraser-pryce'] },
+  { slug: 'fagym-team', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107271945, dateString: 'Tue 27 Jul', timeString: '19:45', round: 'Women\'s Gymnastic Team Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-all', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2107291950, dateString: 'Thu 29 Jul', timeString: '19:50', round: 'Women\'s Gymnastic All-Around Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-uneven', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108011924, dateString: 'Sun 01 Aug', timeString: '19:24', round: 'Women\'s Gymnastic Uneven Bars Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'fagym-beam', eventSlug: 'fagym', sportSlug: 'gymnastics', date: 2108031750, dateString: 'Tue 03 Aug', timeString: '17:50', round: 'Women\'s Gymnastic Balance Beam Final', athleteSlugs: ['sunisa-lee'] },
+  { slug: 'f59lift-f', eventSlug: 'f59lift', sportSlug: 'weight-lifting', date: 2107271550, dateString: 'Tue 27 Jul', timeString: '15:50', round: 'Women\'s Weight-Lifting 59kg Final', athleteSlugs: ['hsing-chun-kuo'] },
+  { slug: 'm400mfs-h4', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107241954, dateString: 'Sat 24 Jul', timeString: '19:54', round: 'Men\'s 400m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'm400mfs-f', eventSlug: 'm400mfs', sportSlug: 'swimming', date: 2107251052, dateString: 'Sun 25 Jul', timeString: '10:52', round: 'Men\'s 400m Freestyle Final', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'm800mfs-h4', eventSlug: 'm800mfs', sportSlug: 'swimming', date: 2107272046, dateString: 'Tue 27 Jul', timeString: '20:46', round: 'Men\'s 800m Freestyle Heat 4', athleteSlugs: ['ahmed-hafnaoui'] },
+  { slug: 'f49tkd-ro16', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241138, dateString: 'Sat 24 Jul', timeString: '11:38', round: 'Women\'s Taekwondo 49kg Round of 16', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-qf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241430, dateString: 'Sat 24 Jul', timeString: '14:30', round: 'Women\'s Taekwondo 49kg Quarterfinal', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-sf', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 2107241600, dateString: 'Sat 24 Jul', timeString: '16:00', round: 'Women\'s Taekwondo 49kg Semifinal', athleteSlugs: ['panipak-wongpattanakit'] },
+  { slug: 'f49tkd-f', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 21072422130, dateString: 'Sat 24 Jul', timeString: '21:30', round: 'Women\'s Taekwondo 49kg Final', athleteSlugs: ['panipak-wongpattanakit'] }
 ]
 
 const competitors = [
@@ -245,7 +248,11 @@ const attempts = [
   { athleteSlug: 'shelby-mcewen', distance: '2.30', result: 'xxx' },
   { athleteSlug: 'naoto-tobe', distance: '2.19', result: 'xo' },
   { athleteSlug: 'naoto-tobe', distance: '2.24', result: 'o' },
-  { athleteSlug: 'naoto-tobe', distance: '2.27', result: 'xxx' }
+  { athleteSlug: 'naoto-tobe', distance: '2.27', result: 'xxx' },
+  { athleteSlug: 'tom-gale', distance: '2.19', result: 'o' },
+  { athleteSlug: 'tom-gale', distance: '2.24', result: 'o' },
+  { athleteSlug: 'tom-gale', distance: '2.27', result: 'o' },
+  { athleteSlug: 'tom-gale', distance: '2.30', result: 'xxx' }
 ]
 
 const worldRecords = [

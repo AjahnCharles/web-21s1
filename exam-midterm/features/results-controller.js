@@ -51,7 +51,7 @@ const resultCreate = async (req, res) => {
 
   // 3. Response
   await query
-  res.redirect('/results')
+  res.redirect(`/results/${slug}`)
 }
 
 module.exports = {

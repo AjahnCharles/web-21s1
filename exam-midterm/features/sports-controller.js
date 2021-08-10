@@ -43,8 +43,8 @@ const sportCreateForm = async (req, res) => {
 
 const sportCreate = async (req, res) => {
   // 1. Inputs
-  const { slug, name, description } = req.body
-  const data = { slug, name, description }
+  const { slug, name, description, eventCount } = req.body
+  const data = { slug, name, description, eventCount: parseInt(eventCount) }
 
   // 2. Query
   const query = db.collection('sports').doc(slug).set(data, { merge: true })

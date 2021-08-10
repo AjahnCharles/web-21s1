@@ -44,7 +44,7 @@ const athleteCreateForm = async (req, res) => {
 const athleteCreate = async (req, res) => {
   // 1. Inputs
   const { slug, name, teamSlug, team, age, gender } = req.body
-  const data = { slug, name, teamSlug, team, age, gender }
+  const data = { slug, name, teamSlug, team, age: parseInt(age), gender }
 
   // 2. Query
   const query = db.collection('athletes').doc(slug).set(data, { merge: true })
