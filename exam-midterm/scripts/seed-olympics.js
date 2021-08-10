@@ -108,48 +108,40 @@ const heats = [
   { slug: 'f49tkd-f', eventSlug: 'f49tkd', sportSlug: 'taekwondo', date: 21072422130, dateString: 'Sat 24 Jul 21:30', round: 'Women\'s Taekwondo 49kg Final', athleteSlugs: ['panipak-wongpattanakit'] }
 ]
 
-const competitors = {
-  'f100m-sf1': [
-    { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
-    { slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 6 },
-    { slug: 'dina-asher-smith', name: 'Dina Asher-Smith', teamSlug: 'great-britain', lane: 7 },
-    { slug: 'jenna-prandini', name: 'Jenna Prandini', teamSlug: 'usa', lane: 8 },
-    { slug: 'khamica-bingham', name: 'Khamica Bingham', teamSlug: 'other', lane: 2 },
-    { slug: 'tynia-gaither', name: 'Tynia Gaither', teamSlug: 'other', lane: 3 },
-    { slug: 'tatjana-pinto', name: 'Tatjana Pinto', teamSlug: 'germany', lane: 9 },
-    { slug: 'mudhawi-alshammari', name: 'Mudhawi Alshammari', teamSlug: 'other', lane: 3 }
-  ],
-  'f100m-sf2': [
-    { slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 5 },
-    { slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 6 },
-    { slug: 'michelle-lee-ahye', name: 'Michelle-Lee Ahye', teamSlug: 'other', lane: 4 },
-    { slug: 'alexandra-burghardt', name: 'Alexandra Burghardt', teamSlug: 'germany', lane: 7 },
-    { slug: 'javianne-oliver', name: 'Javianne Oliver', teamSlug: 'usa', lane: 9 },
-    { slug: 'crystal-emmanuel', name: 'Crystal Emmanuel', teamSlug: 'other', lane: 2 },
-    { slug: 'manqi-ge', name: 'Manqi Ge', teamSlug: 'china', lane: 3 },
-    { slug: 'asha-philip', name: 'Asha Philip', teamSlug: 'great-britain', lane: 8 }
-  ],
-  'f100m-sf3': [
-    { slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
-    { slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 7 },
-    { slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 6 },
-    { slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 4 },
-    { slug: 'nzubechi-grace-nwokocha', name: 'Nzubechi Grace Nwokocha', teamSlug: 'other', lane: 9 },
-    { slug: 'gina-bass', name: 'Gina Bass', teamSlug: 'other', lane: 2 },
-    { slug: 'murielle-ahoure', name: 'Murielle Ahoure', teamSlug: 'other', lane: 8 },
-    { slug: 'anna-bongiorni', name: 'Anna Bongiorni', teamSlug: 'italy', lane: 3 }
-  ],
-  'f100m-f': [
-    { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
-    { slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
-    { slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 7 },
-    { slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 6 },
-    { slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 8 },
-    { slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 9 },
-    { slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 3 },
-    { slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 2 }
-  ]
-}
+const competitors = [
+  { heatSlug: 'f100m-sf1', slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
+  { heatSlug: 'f100m-sf1', slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 6 },
+  { heatSlug: 'f100m-sf1', slug: 'dina-asher-smith', name: 'Dina Asher-Smith', teamSlug: 'great-britain', lane: 7 },
+  { heatSlug: 'f100m-sf1', slug: 'jenna-prandini', name: 'Jenna Prandini', teamSlug: 'usa', lane: 8 },
+  { heatSlug: 'f100m-sf1', slug: 'khamica-bingham', name: 'Khamica Bingham', teamSlug: 'other', lane: 2 },
+  { heatSlug: 'f100m-sf1', slug: 'tynia-gaither', name: 'Tynia Gaither', teamSlug: 'other', lane: 3 },
+  { heatSlug: 'f100m-sf1', slug: 'tatjana-pinto', name: 'Tatjana Pinto', teamSlug: 'germany', lane: 9 },
+  { heatSlug: 'f100m-sf1', slug: 'mudhawi-alshammari', name: 'Mudhawi Alshammari', teamSlug: 'other', lane: 3 },
+  { heatSlug: 'f100m-sf2', slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 5 },
+  { heatSlug: 'f100m-sf2', slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 6 },
+  { heatSlug: 'f100m-sf2', slug: 'michelle-lee-ahye', name: 'Michelle-Lee Ahye', teamSlug: 'other', lane: 4 },
+  { heatSlug: 'f100m-sf2', slug: 'alexandra-burghardt', name: 'Alexandra Burghardt', teamSlug: 'germany', lane: 7 },
+  { heatSlug: 'f100m-sf2', slug: 'javianne-oliver', name: 'Javianne Oliver', teamSlug: 'usa', lane: 9 },
+  { heatSlug: 'f100m-sf2', slug: 'crystal-emmanuel', name: 'Crystal Emmanuel', teamSlug: 'other', lane: 2 },
+  { heatSlug: 'f100m-sf2', slug: 'manqi-ge', name: 'Manqi Ge', teamSlug: 'china', lane: 3 },
+  { heatSlug: 'f100m-sf2', slug: 'asha-philip', name: 'Asha Philip', teamSlug: 'great-britain', lane: 8 },
+  { heatSlug: 'f100m-sf3', slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
+  { heatSlug: 'f100m-sf3', slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 7 },
+  { heatSlug: 'f100m-sf3', slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 6 },
+  { heatSlug: 'f100m-sf3', slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 4 },
+  { heatSlug: 'f100m-sf3', slug: 'nzubechi-grace-nwokocha', name: 'Nzubechi Grace Nwokocha', teamSlug: 'other', lane: 9 },
+  { heatSlug: 'f100m-sf3', slug: 'gina-bass', name: 'Gina Bass', teamSlug: 'other', lane: 2 },
+  { heatSlug: 'f100m-sf3', slug: 'murielle-ahoure', name: 'Murielle Ahoure', teamSlug: 'other', lane: 8 },
+  { heatSlug: 'f100m-sf3', slug: 'anna-bongiorni', name: 'Anna Bongiorni', teamSlug: 'italy', lane: 3 },
+  { heatSlug: 'f100m-f', slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', teamSlug: 'jamaica', lane: 4 },
+  { heatSlug: 'f100m-f', slug: 'shelly-ann-fraser-pryce', name: 'Shelly-Ann Fraser-Pryce', teamSlug: 'jamaica', lane: 5 },
+  { heatSlug: 'f100m-f', slug: 'shericka-jackson', name: 'Shericka Jackson', teamSlug: 'jamaica', lane: 7 },
+  { heatSlug: 'f100m-f', slug: 'marie-josee-ta-lou', name: 'Marie-Josee Ta Lou', teamSlug: 'other', lane: 6 },
+  { heatSlug: 'f100m-f', slug: 'ajla-del-ponte', name: 'Ajla del Ponte', teamSlug: 'other', lane: 8 },
+  { heatSlug: 'f100m-f', slug: 'mujinga-kambundji', name: 'Mujinga Kambundji', teamSlug: 'other', lane: 9 },
+  { heatSlug: 'f100m-f', slug: 'teahna-daniels', name: 'Teahna Daniels', teamSlug: 'usa', lane: 3 },
+  { heatSlug: 'f100m-f', slug: 'daryll-neita', name: 'Daryll Neita', teamSlug: 'great-britain', lane: 2 }
+]
 
 const records = [
   { slug: 'elaine-thompson-herah', name: 'Elaine Thompson-Herah', pb100: '10.61', pb200: '21.53', sb100: '10.61', sb200: '21.53' },
@@ -161,6 +153,108 @@ const records = [
   { slug: 'daryll-neita', name: 'Daryll Neita', pb100: '10.96', pb200: '23.06', sb100: '10.96', sb200: '23.06' }
 ]
 
+const results = [
+  { slug: 'mutaz-essa-barshim', name: 'Mutaz Essa Barshim', teamSlug: 'qat', rank: 1, order: 1, distance: '2.37', record: 'SB' },
+  { slug: 'gianmarco-tamberi', name: 'Gianmarco Tamberi', teamSlug: 'ita', rank: 1, order: 12, distance: '2.37', record: 'SB' },
+  { slug: 'maksim-nedasekau', name: 'Maksim Nedasekau', teamSlug: 'blr', rank: 3, order: 3, distance: '2.37', record: '=NR' },
+  { slug: 'sanghyeok-woo', name: 'Sanghyeok Woo', teamSlug: 'kor', rank: 4, order: 8, distance: '2.35', record: 'NR' },
+  { slug: 'brandon-starc', name: 'Brandon Starc', teamSlug: 'aus', rank: 5, order: 9, distance: '2.35', record: 'SB' },
+  { slug: 'mikhail-akimenko', name: 'Mikhail Akimenko', teamSlug: 'roc', rank: 6, order: 6, distance: '2.33', record: '=SB' },
+  { slug: 'juvaughn-harrison', name: 'Juvaughn Harrison', teamSlug: 'usa', rank: 7, order: 13, distance: '2.33', record: '' },
+  { slug: 'django-lovett', name: 'Django Lovett', teamSlug: 'can', rank: 8, order: 11, distance: '2.30', record: '' },
+  { slug: 'ilya-ivanyuk', name: 'Ilya Ivanyuk', teamSlug: 'roc', rank: 9, order: 2, distance: '2.30', record: '' },
+  { slug: 'hamish-kerr', name: 'Hamish Kerr', teamSlug: 'nzl', rank: 10, order: 10, distance: '2.30', record: '' },
+  { slug: 'shelby-mcewen', name: 'Shelby Mcewen', teamSlug: 'usa', rank: 12, order: 7, distance: '2.27', record: '' },
+  { slug: 'naoto-tobe', name: 'Naoto Tobe', teamSlug: 'jpn', rank: 13, order: 4, distance: '2.24', record: '' }
+]
+
+const attempts = [
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.19', result: '-' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.24', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.27', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.30', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.33', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.35', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.37', result: 'o' },
+  { athleteSlug: 'mutaz-essa-barshim', distance: '2.39', result: 'xxx' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.19', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.24', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.27', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.30', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.33', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.35', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.37', result: 'o' },
+  { athleteSlug: 'gianmarco-tamberi', distance: '2.39', result: 'xxx' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.19', result: 'xo' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.24', result: 'o' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.27', result: 'o' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.30', result: 'o' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.33', result: 'o' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.35', result: 'x-' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.37', result: 'o' },
+  { athleteSlug: 'maksim-nedasekau', distance: '2.39', result: 'xxx' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.19', result: 'o' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.24', result: 'o' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.27', result: 'o' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.30', result: 'o' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.33', result: 'xo' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.35', result: 'o' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.37', result: 'x-' },
+  { athleteSlug: 'sanghyeok-woo', distance: '2.39', result: 'xx' },
+  { athleteSlug: 'brandon-starc', distance: '2.19', result: 'o' },
+  { athleteSlug: 'brandon-starc', distance: '2.24', result: 'o' },
+  { athleteSlug: 'brandon-starc', distance: '2.27', result: 'o' },
+  { athleteSlug: 'brandon-starc', distance: '2.30', result: 'o' },
+  { athleteSlug: 'brandon-starc', distance: '2.33', result: 'xxo' },
+  { athleteSlug: 'brandon-starc', distance: '2.35', result: 'o' },
+  { athleteSlug: 'brandon-starc', distance: '2.37', result: 'x-' },
+  { athleteSlug: 'brandon-starc', distance: '2.39', result: 'xx' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.19', result: 'o' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.24', result: 'o' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.27', result: 'o' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.30', result: 'xo' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.33', result: 'xo' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.35', result: 'xx-' },
+  { athleteSlug: 'mikhail-akimenko', distance: '2.37', result: 'x' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.19', result: 'o' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.24', result: 'o' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.27', result: 'xxo' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.30', result: 'xo' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.33', result: 'xo' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.35', result: '-' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.37', result: 'x-' },
+  { athleteSlug: 'juvaughn-harrison', distance: '2.39', result: 'xx' },
+  { athleteSlug: 'django-lovett', distance: '2.19', result: 'o' },
+  { athleteSlug: 'django-lovett', distance: '2.24', result: 'o' },
+  { athleteSlug: 'django-lovett', distance: '2.27', result: 'o' },
+  { athleteSlug: 'django-lovett', distance: '2.30', result: 'o' },
+  { athleteSlug: 'django-lovett', distance: '2.33', result: 'xxx' },
+  { athleteSlug: 'ilya-ivanyuk', distance: '2.19', result: 'o' },
+  { athleteSlug: 'ilya-ivanyuk', distance: '2.24', result: 'o' },
+  { athleteSlug: 'ilya-ivanyuk', distance: '2.27', result: 'o' },
+  { athleteSlug: 'ilya-ivanyuk', distance: '2.30', result: 'xo' },
+  { athleteSlug: 'ilya-ivanyuk', distance: '2.33', result: 'xxx' },
+  { athleteSlug: 'hamish-kerr', distance: '2.19', result: 'o' },
+  { athleteSlug: 'hamish-kerr', distance: '2.24', result: 'o' },
+  { athleteSlug: 'hamish-kerr', distance: '2.27', result: 'xxo' },
+  { athleteSlug: 'hamish-kerr', distance: '2.30', result: 'xxo' },
+  { athleteSlug: 'hamish-kerr', distance: '2.33', result: 'xxx' },
+  { athleteSlug: 'shelby-mcewen', distance: '2.19', result: 'o' },
+  { athleteSlug: 'shelby-mcewen', distance: '2.24', result: 'xxo' },
+  { athleteSlug: 'shelby-mcewen', distance: '2.27', result: 'o' },
+  { athleteSlug: 'shelby-mcewen', distance: '2.30', result: 'xxx' },
+  { athleteSlug: 'naoto-tobe', distance: '2.19', result: 'xo' },
+  { athleteSlug: 'naoto-tobe', distance: '2.24', result: 'o' },
+  { athleteSlug: 'naoto-tobe', distance: '2.27', result: 'xxx' }
+]
+
+const worldRecords = [
+  { eventSlug: 'f100m', sportSlug: 'sprinting', wr: '10.49', wrName: 'Florence Griffith-Joyner', wrYear: 1988, or: '10.61', orName: 'Elaine Thompson-Herah', orYear: 2021 },
+  { eventSlug: 'm100m', sportSlug: 'sprinting', wr: '9.58', wrName: 'Usain Bolt', wrYear: 2009, or: '9.63', orName: 'Usain Bolt', orYear: 2012 },
+  { eventSlug: 'mhighjump', sportSlug: 'highjump', wr: '2.45', wrName: 'Javier Sotomayor', wrYear: 1993, or: '2.39', orName: 'Charles Austin', orYear: 1996 },
+  { eventSlug: 'fhighjump', sportSlug: 'highjump', wr: '2.09', wrName: 'Stefka Kostadinova', wrYear: 1987, or: '2.06', orName: 'Yelena Slesarenko', orYear: 2004 }
+]
+
 const main = async () => {
   // Setup a write-only batch
   const batch = db.batch()
@@ -170,6 +264,7 @@ const main = async () => {
   batch.delete(db.collection('athletes').doc('panipak-wongpattanakit'))
   batch.delete(db.collection('sports').doc('taekwondo'))
   batch.delete(db.collection('records').doc('ajla-del-ponte'))
+  batch.delete(db.collection('results').doc('tom-gale'))
 
   // Create example data
   teams.forEach(data => batch.set(db.collection('teams').doc(data.slug), data))
@@ -177,12 +272,15 @@ const main = async () => {
   sports.forEach(data => batch.set(db.collection('sports').doc(data.slug), data))
   events.forEach(data => batch.set(db.collection('events').doc(data.slug), data))
   heats.forEach(data => batch.set(db.collection('heats').doc(data.slug), data))
-  Object.entries(competitors).forEach(([heatSlug, dataset]) => dataset.forEach(data => batch.set(db.collection('heats').doc(heatSlug).collection('competitors').doc(data.slug), data)))
+  competitors.forEach(({ heatSlug, ...data }) => batch.set(db.collection('heats').doc(heatSlug).collection('competitors').doc(data.slug), data))
   records.forEach(data => batch.set(db.collection('records').doc(data.slug), data))
+  results.forEach(data => batch.set(db.collection('results').doc(data.slug), data))
+  attempts.forEach(({ athleteSlug, ...data }) => batch.set(db.collection('results').doc(athleteSlug).collection('attempts').doc(data.distance), data))
+  worldRecords.forEach(data => batch.set(db.collection('world-records').doc(data.eventSlug), data))
 
   // Save data to Firestore
   await batch.commit()
-  console.log(`Saved to ${admin.apps[0].options.credential.projectId}\n- ${teams.length} Teams\n- ${athletes.length} Athletes\n- ${sports.length} Sports\n- ${events.length} Events\n- ${heats.length} Heats\n- ${Object.keys(competitors).length} Line-ups\n- ${records.length} Records`)
+  console.log(`Saved to ${admin.apps[0].options.credential.projectId}\n- ${teams.length} Teams\n- ${athletes.length} Athletes\n- ${sports.length} Sports\n- ${events.length} Events\n- ${heats.length} Heats\n- ${competitors.length} Competitors\n- ${records.length} Records\n- ${results.length} Results\n- ${attempts.length} Attempts\n- ${worldRecords.length} World Records`)
   process.exit(0)
 }
 

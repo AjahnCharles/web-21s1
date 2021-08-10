@@ -7,6 +7,7 @@ const { teamList, teamDetails, teamMedals, teamCreateForm, teamCreate } = requir
 const { athleteList, athleteDetails, athleteSchedule, athleteCreateForm, athleteCreate } = require('./features/athletes-controller')
 const { sportList, sportDetails, sportSchedule, sportCreateForm, sportCreate } = require('./features/sports-controller')
 const { heatList, heatLineup, heatRecord, heatRecordCreateForm, heatRecordCreate } = require('./features/heats-controller')
+const { resultList, resultDetails, resultWorldRecords, resultCreateForm, resultCreate } = require('./features/results-controller')
 
 const app = express()
 
@@ -58,11 +59,11 @@ app.get('/records/new', heatRecordCreateForm)
 app.get('/records/:slug', heatRecord)
 
 // [E] Results -- not nested under /events/:slug/ for simplicity
-app.get('/results', index)
-app.post('/results', index)
-app.get('/results/new', index)
-app.get('/results/:slug', index)
-app.get('/world-records/:slug', index)
+app.get('/results', resultList)
+app.post('/results', resultCreate)
+app.get('/results/new', resultCreateForm)
+app.get('/results/:slug', resultDetails)
+app.get('/world-records/:slug', resultWorldRecords)
 
 // General
 app.get('/images/:catchall', (_req, res) => res.redirect('/images/404.jpg'))

@@ -1,0 +1,28 @@
+{{#>page}}
+
+<h1>Create Result</h1>
+
+<form method="post" action="/results">
+  <label for="result-slug">Slug</label>
+  <input type="text" id="result-slug" name="slug" value="tom-gale" />
+
+  <label for="result-name">Name</label>
+  <input type="text" id="result-name" name="name" value="Tom Gale" />
+
+  <label for="result-rank">Rank</label>
+  <input type="number" id="result-rank" name="rank" value="11" />
+
+  <label for="result-order">Jump Order</label>
+  <input type="number" id="result-order" name="order" value="5" />
+
+  <label for="result-distance">Distance</label>
+  <input type="text" id="result-distance" name="distance" value="2.30" />
+
+  <label for="result-record">Record</label>
+  <input type="number" id="result-record" name="record" value="" />
+
+  <button type="submit">Create Result</button>
+
+</form>
+
+{{/page}}

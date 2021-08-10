@@ -44,7 +44,7 @@ const teamCreateForm = async (req, res) => {
 const teamCreate = async (req, res) => {
   // 1. Inputs
   const { slug, name, rank, countFirst, countSecond, countThird, countTotal, introduction } = req.body
-  const data = { slug, name, rank, countFirst, countSecond, countThird, countTotal, introduction }
+  const data = { slug, name, rank: parseInt(rank), countFirst: parseInt(countFirst), countSecond: parseInt(countSecond), countThird: parseInt(countThird), countTotal: parseInt(countTotal), introduction }
 
   // 2. Query
   const query = db.collection('teams').doc(slug).set(data, { merge: true })
