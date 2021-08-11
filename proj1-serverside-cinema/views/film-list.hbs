@@ -1,0 +1,14 @@
+{{#> becinema }}
+
+<h1>Films</h1>
+
+<div class="film-list-grid">
+  {{#each films}}
+  <a href="{{baseUrl}}films/{{slug}}">
+    <img src="{{baseUrl}}images/{{slug}}.jpg" width="100%" /><br />
+    {{title}}
+  </a>
+  {{/each}}
+</div>
+
+{{/becinema}}

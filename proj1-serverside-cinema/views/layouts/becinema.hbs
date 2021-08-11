@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{#if metaTitle}}{{ metaTitle }} - {{/if}}BECinema</title>
+  <link rel="stylesheet" href="{{ baseUrl }}css/main.css" />
+</head>
+
+<body>
+  <div class="pancake-stack">
+    <header>
+      <a href="{{baseUrl}}">
+        <h1>BECinema</h1>
+      </a>
+      <a href="{{baseUrl}}">
+        Phitsanulok | Chaz
+      </a>
+    </header>
+    <main>
+      {{> @partial-block }}
+    </main>
+    <footer>
+      <ol>
+        <li><a href="{{baseUrl}}cinemas">Cinema List</a></li>
+        <li><a href="{{baseUrl}}cinemas/phitsanulok-bec-auditorium">Cinema Details</a></li>
+        <li><a href="{{baseUrl}}films">Film List</a></li>
+        <li><a href="{{baseUrl}}films/black-pink-movie">Film Details</a></li>
+
+        <li><a href="{{baseUrl}}book?screening=phitsanulok-bec-auditorium,1,1628863200">Booking Form</a></li>
+        <li>
+          <form action="{{baseUrl}}book" method="POST">
+            <input type="hidden" name="seats" value="2A" />
+            <input type="hidden" name="seats" value="2B" />
+            <input type="hidden" name="screeningSlug" value="phitsanulok-bec-auditorium,1,1628863200" />
+            <input type="submit" value="Booking Submit [POST]" />
+          </form>
+        </li>
+        <li><a href="{{baseUrl}}tickets">My Tickets</a></li>
+        <li><a href="{{baseUrl}}api/v1/tickets">My Tickets (API)</a></li>
+      </ol>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+:root {
+  --color-light: #efefef;
+  --color-dark: #363636;
+  --color-link: #00f;
+  --color-disabled-light: #ccc;
+  --color-disabled-dark: #999;
+  --color-selected-light: #fff;
+  --color-selected-dark: #00c;
+}
+
+/**************
+ * Foundation *
+ **************/
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12pt;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+a {
+  color: var(--color-link);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+header,
+footer,
+header a {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+footer a,
+footer input[type='submit'],
+footer button[type='submit'] {
+  font-size: 12pt;
+  color: var(--color-light);
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pancake-stack {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+main,
+footer {
+  padding: 2rem;
+}
+
+header {
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+header * {
+  margin: 0;
+  text-decoration: none;
+}
+
+header *:last-child {
+  justify-self: end;
+  align-self: center;
+}
+
+footer ol {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+footer li {
+  padding-left: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+/**************
+ * Screenings *
+ **************/
+
+.screening-screen {
+  font-size: 0.8rem;
+}
+
+.screening-time {
+  font-size: 1.8rem;
+}
+
+.screening-title {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.screening-cinema {
+  font-size: 0.8rem;
+}
+
+/***************
+ * Cinema List *
+ ***************/
+
+.cinema-list li {
+  font-size: 1.25rem;
+  padding: 0.25rem;
+}
+
+/******************
+ * Cinema Details *
+ ******************/
+
+.cinema-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.cinema-details-grid a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.cinema-details-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+/*************
+ * Film List *
+ *************/
+
+.film-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-gap: 1.25rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.film-list-grid a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.film-list-grid img {
+  aspect-ratio: 2 / 3;
+}
+
+/****************
+ * Film Details *
+ ****************/
+
+.film-details-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(12rem, 24rem);
+  grid-gap: 1rem;
+  align-items: start;
+}
+
+.film-details-layout img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.film-details-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.film-details-list a {
+  padding: 1rem;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+/***********
+ * Booking *
+ ***********/
+
+.booking-details td,
+.booking-details th {
+  font-size: 1.25rem;
+  padding: 0 1.25rem 0.5rem 0;
+}
+
+.booking-details th {
+  text-align: left;
+}
+
+.booking-seats {
+  display: grid;
+  grid-template-columns: repeat(50, minmax(1.9rem, 2.2rem));
+  grid-gap: 0.25rem;
+  margin-top: 1rem;
+}
+
+.booking-seats.small {
+  grid-template-columns: repeat(8, minmax(1.9rem, 2.2rem));
+  grid-gap: 0.4rem;
+}
+
+.booking-seats.medium {
+  grid-template-columns: repeat(16, minmax(1.9rem, 2.2rem));
+  grid-gap: 0.25rem;
+}
+
+.booking-seats input {
+  display: none;
+}
+
+.booking-seats label {
+  display: block;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--color-dark);
+  text-align: center;
+  line-height: 1.75rem;
+  user-select: none;
+}
+
+.booking-seats input[disabled] + label {
+  background-color: var(--color-disabled-light);
+  color: var(--color-disabled-dark);
+  border-color: var(--color-disabled-dark);
+}
+
+.booking-seats input:checked + label {
+  background-color: var(--color-selected-dark);
+  color: var(--color-selected-light);
+  border-color: var(--color-selected-dark);
+}
+
+.booking-details button[type='submit'] {
+  margin-top: 2rem;
+  padding: 0.25rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+/* #region seating rows & columns */
+
+/*
+If I split row & column as a separate attributes, we could simplify:
+
+.booking-seats label {
+  grid-row-start: attr(data-seat-row number, 100);
+  grid-column-start: attr(data-seat-column number, 1);
+}
+
+...I didn't because I want to make the Firestore queries easy ;)
+*/
+
+.booking-seats label[id^='label-seats-1'] {
+  grid-row-start: 1;
+}
+
+.booking-seats label[id^='label-seats-2'] {
+  grid-row-start: 2;
+}
+
+.booking-seats label[id^='label-seats-3'] {
+  grid-row-start: 3;
+}
+
+.booking-seats label[id^='label-seats-4'] {
+  grid-row-start: 4;
+}
+
+.booking-seats label[id^='label-seats-5'] {
+  grid-row-start: 5;
+}
+
+.booking-seats label[id^='label-seats-6'] {
+  grid-row-start: 6;
+}
+
+.booking-seats label[id$='A'] {
+  grid-column-start: 1;
+}
+
+.booking-seats label[id$='B'] {
+  grid-column-start: 2;
+}
+
+.booking-seats label[id$='C'] {
+  grid-column-start: 3;
+}
+
+.booking-seats label[id$='D'] {
+  grid-column-start: 4;
+}
+
+.booking-seats label[id$='E'] {
+  grid-column-start: 5;
+}
+
+.booking-seats label[id$='F'] {
+  grid-column-start: 6;
+}
+
+.booking-seats label[id$='G'] {
+  grid-column-start: 7;
+}
+
+.booking-seats label[id$='H'] {
+  grid-column-start: 8;
+}
+
+.booking-seats label[id$='I'] {
+  grid-column-start: 9;
+}
+
+.booking-seats label[id$='J'] {
+  grid-column-start: 10;
+}
+
+.booking-seats label[id$='K'] {
+  grid-column-start: 11;
+}
+
+.booking-seats label[id$='L'] {
+  grid-column-start: 12;
+}
+
+.booking-seats label[id$='M'] {
+  grid-column-start: 13;
+}
+
+.booking-seats label[id$='N'] {
+  grid-column-start: 14;
+}
+
+.booking-seats label[id$='O'] {
+  grid-column-start: 15;
+}
+
+.booking-seats label[id$='P'] {
+  grid-column-start: 16;
+}
+
+/* #endregion seating rows & columns */
+
+/***********
+ * Tickets *
+ ***********/
+
+.ticket-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  grid-gap: 1rem;
+}
+
+.ticket {
+  border: 1px solid var(--color-dark);
+  display: grid;
+  grid-template-columns: 1fr 8rem;
+}
+
+.ticket div {
+  padding: 1rem;
+}
+
+.ticket-seats {
+  font-family: monospace;
+  font-size: 1.75rem;
+  text-align: right;
+  word-wrap: break-word;
+}

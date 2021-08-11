@@ -1,0 +1,16 @@
+{{#> becinema }}
+
+<h1>{{cinema.name}}</h1>
+
+<div class="cinema-details-grid">
+  {{#each screenings}}
+  <a href="{{baseUrl}}book?screening={{ slug }}">
+    <img src="{{baseUrl}}images/{{filmSlug}}.jpg" /><br />
+    <span class="screening-screen">Screen {{ screen }}</span><br />
+    <span class="screening-time">{{ timeString }}</span><br />
+    <span class="screening-title">{{ filmName }}</span>
+  </a>
+  {{/each}}
+</div>
+
+{{/becinema}}
