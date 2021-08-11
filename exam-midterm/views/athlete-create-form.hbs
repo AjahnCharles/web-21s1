@@ -1,0 +1,31 @@
+{{#>page}}
+
+<h1>Create Athlete</h1>
+
+<form method="post" action="/athletes">
+  <label for="athlete-slug">Slug</label>
+  <input type="text" id="athlete-slug" name="slug" value="panipak-wongpattanakit" />
+
+  <label for="athlete-name">Name</label>
+  <input type="text" id="athlete-name" name="name" value="Panipak Wongpattanakit" />
+
+  <label for="athlete-team-slug">Team Slug</label>
+  <input type="text" id="athlete-team-slug" name="teamSlug" value="thailand" />
+
+  <label for="athlete-team-name">Team Name</label>
+  <input type="text" id="athlete-team-name" name="team" value="Thailand" />
+
+  <label for="athlete-age">Age</label>
+  <input type="number" id="athlete-age" name="age" value="24" />
+
+  <label for="athlete-gender">Gender</label>
+  <select id="athlete-gender" name="gender">
+    <option value="Female" selected>Female</option>
+    <option value="Male">Male</option>
+  </select>
+
+  <button type="submit">Create Team</button>
+
+</form>
+
+{{/page}}

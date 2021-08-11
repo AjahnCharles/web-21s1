@@ -1,0 +1,24 @@
+{{#>page}}
+
+<h1>Heat Lineup</h1>
+
+<table>
+  <tr>
+    <th>Lane</th>
+    <th>Team</th>
+    <th>Name</th>
+  </tr>
+  {{#each competitors}}
+  <tr>
+    <td>{{ lane }}</td>
+    <td><img src="/images/flags/{{ teamSlug }}.png" height="21" /></td>
+    <td>
+      <a href="/records/{{slug}}">
+        {{ name }}
+      </a>
+    </td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}

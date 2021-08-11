@@ -1,0 +1,15 @@
+{{#>page}}
+
+<h1>Teams</h1>
+
+<ul>
+  {{#each teams}}
+  <li>
+    <a href="/teams/{{slug}}">
+      <img src="/images/flags/{{slug}}.png" height="21" /> {{name}}
+    </a>
+  </li>
+  {{/each}}
+</ul>
+
+{{/page}}

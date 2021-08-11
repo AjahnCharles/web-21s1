@@ -1,0 +1,26 @@
+{{#>page}}
+
+<h1>Medals Table</h1>
+
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Team</th>
+    <th>1st</th>
+    <th>2nd</th>
+    <th>3rd</th>
+    <th>Total</th>
+  </tr>
+  {{#each teams}}
+  <tr>
+    <td>{{ rank }}</td>
+    <td><a href="/teams/{{slug}}">{{ name }}</a></td>
+    <td>{{ countFirst }}</td>
+    <td>{{ countSecond }}</td>
+    <td>{{ countThird }}</td>
+    <td>{{ countTotal }}</td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}

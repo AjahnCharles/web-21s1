@@ -1,0 +1,23 @@
+{{#>page}}
+
+<h1>Create Sport</h1>
+
+<form method="post" action="/sports">
+  <label for="sport-slug">Slug</label>
+  <input type="text" id="sport-slug" name="slug" value="taekwondo" />
+
+  <label for="sport-name">Name</label>
+  <input type="text" id="sport-name" name="name" value="Taekwondo" />
+
+  <label for="sport-description">Description</label>
+  <textarea id="sport-description"
+    name="description">Originally from Korea, Taekwondo is a martial art that focuses on kicking.</textarea>
+
+  <label for="sport-event-count">Event Count</label>
+  <input type="number" id="sport-event-count" name="eventCount" value="8" />
+
+  <button type="submit">Create Sport</button>
+
+</form>
+
+{{/page}}

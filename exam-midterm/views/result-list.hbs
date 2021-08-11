@@ -1,0 +1,24 @@
+{{#>page}}
+
+<h1>Results</h1>
+
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Jump Order</th>
+    <th>Name</th>
+    <th>Result</th>
+    <th>Record</th>
+  </tr>
+  {{#each results}}
+  <tr>
+    <td>{{ rank }}</td>
+    <td>{{ order }}</td>
+    <td><a href="/results/{{ slug }}">{{ name }}</a></td>
+    <td>{{ distance }}</td>
+    <td>{{ record }}</td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}

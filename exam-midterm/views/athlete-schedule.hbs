@@ -1,0 +1,20 @@
+{{#>page}}
+
+<h1>Athlete Schedule</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Event</th>
+  </tr>
+  {{#each heats}}
+  <tr>
+    <td>{{ dateString }}</td>
+    <td>{{ timeString }}</td>
+    <td>{{ round }}</td>
+  </tr>
+  {{/each}}
+</table>
+
+{{/page}}
