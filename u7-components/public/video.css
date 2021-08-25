@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+
+a,
+a:visited {
+  color: #444444;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  padding: 12px 16px 4px;
+}
+
+.nav::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.nav .brand {
+  float: left;
+  font-size: 2rem;
+}
+
+.nav .auth {
+  float: right;
+}
+
+.nav .auth a {
+  color: #444444;
+}
+
+.content {
+  padding: 8px;
+}
+
+.stats {
+  font-size: 0.8rem;
+  color: #999999;
+}
