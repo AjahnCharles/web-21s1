@@ -136,7 +136,7 @@ const videos: Record<string, Video> = {
     duration: '2:58'
   },
   137: {
-    id: 137,
+    id: '137',
     title: '“Gaming Web Browser”… R U kidding me?',
     views: '2,181,375',
     viewsShort: '2.1M',
