@@ -5,20 +5,47 @@
       <h3>{{ video.title }}</h3>
       <p class="stats">{{ video.views }} views · {{ video.date }}</p>
     </div>
+    <div class="playback-videos">
+      <VideoTease
+        v-for="suggestion in suggestions"
+        :key="`player-suggestion-${suggestion.id}`"
+        :video="suggestion"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import type { Route, NavigationGuardNext } from 'vue-router'
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { getVideo, Video } from '@/_services/fakeapi'
+import { getVideo, getSuggestions, Video } from '@/_services/fakeapi'
+import VideoTease from './VideoTease.vue'
 
-@Component
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteLeave',
+  'beforeRouteUpdate'
+])
+
+@Component({ components: { VideoTease } })
 export default class VideoPlayer extends Vue {
   video: Video | null = null
+  suggestions: Video[] = []
 
-  created (): void { this.loadData(this.$route.params.videoId) }
-  loadData (id: string): void { this.video = getVideo(id) }
+  created (): void {
+    this.loadData(this.$route.params.videoId)
+  }
+
+  beforeRouteUpdate (to: Route, _from: Route, next: NavigationGuardNext): void {
+    this.loadData(to.params.videoId)
+    next()
+  }
+
+  loadData (id: string): void {
+    this.video = getVideo(id)
+    this.suggestions = getSuggestions(7).filter(video => video.id !== id).slice(0, 6)
+  }
 }
 </script>
 
