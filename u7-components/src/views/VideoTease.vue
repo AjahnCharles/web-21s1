@@ -3,7 +3,7 @@
     :to="{ name: 'VideoPlayer', params: { videoId: video.id } }"
     class="next-card"
   >
-    <div><img :src="`/images/${video.id}.webp`" :alt="video.id" /></div>
+    <div><img :src="`/images/videos/${video.id}.webp`" :alt="video.id" /></div>
     <div class="description">
       <p>{{ video.title }}</p>
       <p class="stats">

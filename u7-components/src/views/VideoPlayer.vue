@@ -1,7 +1,7 @@
 <template>
   <div class="playback">
     <div class="playback-player">
-      <img :src="`/images/${video.id}.webp`" :alt="video.id" />
+      <img :src="`/images/videos/${video.id}.webp`" :alt="video.id" />
       <h3>{{ video.title }}</h3>
       <p class="stats">{{ video.views }} views · {{ video.date }}</p>
     </div>

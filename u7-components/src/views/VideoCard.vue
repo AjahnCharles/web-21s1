@@ -4,7 +4,7 @@
     class="home-card"
   >
     <div>
-      <img :src="`/images/${video.id}.webp`" :alt="video.title" />
+      <img :src="`/images/videos/${video.id}.webp`" :alt="video.title" />
       <p>{{ video.duration }}</p>
     </div>
     <p>{{ video.title }}</p>
