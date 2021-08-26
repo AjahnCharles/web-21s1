@@ -2,9 +2,11 @@
   <div id="app">
     <div class="nav">
       <span class="brand">
-        <router-link :to="{ name: 'Home' }">DBTube</router-link>
+        <router-link :to="{ name: 'Home' }">DBTube &amp; Book Shop</router-link>
       </span>
-      <span class="auth">Login</span>
+      <router-link :to="{ name: 'BookSearch' }" class="auth"
+        >Book search</router-link
+      >
     </div>
     <div class="content">
       <router-view />

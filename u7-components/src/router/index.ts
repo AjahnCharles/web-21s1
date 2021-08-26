@@ -15,6 +15,16 @@ const routes: Array<RouteConfig> = [
     path: '/videos/:videoId',
     name: 'VideoPlayer',
     component: VideoPlayer
+  },
+  {
+    path: '/books',
+    name: 'BookSearch',
+    component: () => import('@/views/BookSearch.vue')
+  },
+  {
+    path: '/books/:isbn13',
+    name: 'BookDetails',
+    component: () => import('@/views/BookDetails.vue')
   }
 ]
 
