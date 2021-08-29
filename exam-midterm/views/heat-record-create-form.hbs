@@ -1,0 +1,28 @@
+{{#>page}}
+
+<h1>Create Record</h1>
+
+<form method="post" action="/records">
+  <label for="record-slug">Slug</label>
+  <input type="text" id="record-slug" name="slug" value="ajla-del-ponte" />
+
+  <label for="record-name">Name</label>
+  <input type="text" id="record-name" name="name" value="Ajla del Ponte" />
+
+  <label for="record-sb100">SB 100m</label>
+  <input type="text" id="record-sb100" name="sb100" value="10.91" />
+
+  <label for="record-sb200">SB 200m</label>
+  <input type="text" id="record-sb200" name="sb200" value="-" />
+
+  <label for="record-pb100">PB 100m</label>
+  <input type="text" id="record-pb100" name="pb100" value="10.91" />
+
+  <label for="record-pb200">PB 200m</label>
+  <input type="text" id="record-pb200" name="pb200" value="23.02" />
+
+  <button type="submit">Create Record</button>
+
+</form>
+
+{{/page}}
