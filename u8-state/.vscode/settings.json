@@ -1,0 +1,50 @@
+{
+  // Formatting & Linting
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports", // VSCode
+    "source.formatDocument", // Extension: Format Code Action
+    "source.fixAll.eslint", // Extension: ESLint
+    "source.fixAll.stylelint" // Extension: StyleLint
+  ],
+  "editor.formatOnSave": false, // Enabled via codeActionsOnSave  (known order)
+  "editor.formatOnPaste": true,
+  "editor.quickSuggestions": { "strings": true },
+  "editor.rulers": [80], // Same as Prettier
+  "editor.tabSize": 2,
+  "eslint.format.enable": false, // Enabled via codeActionsOnSave (known order)
+  "eslint.lintTask.enable": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "files.autoSave": "onFocusChange",
+  "prettier.semi": false,
+  "prettier.trailingComma": "none",
+  "prettier.singleQuote": true,
+  "prettier.printWidth": 80,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.endOfLine": "auto",
+
+  // Language-specific
+  "[javascript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[typescriptreact]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[scss]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[vue]": { "editor.defaultFormatter": "octref.vetur" },
+  "css.validate": false, // Prefer stylelint
+  "less.validate": false, // Prefer stylelint
+  "scss.validate": false, // Prefer stylelint
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.options.useTabs": false,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier"
+}
