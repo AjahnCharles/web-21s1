@@ -21,10 +21,21 @@ import Component from 'vue-class-component'
 import { Video } from '@/store/models'
 import VideoTease from './VideoTease.vue'
 
+Component.registerHooks([
+  'beforeRouteEnter',
+  'beforeRouteLeave',
+  'beforeRouteUpdate'
+])
+
 @Component({ components: { VideoTease } })
 export default class VideoPlayer extends Vue {
-  video: Video | null = null
-  suggestions: Video[] = []
+  get video (): Video | null {
+    return this.$store.getters.videosById[this.$route.params.videoId] ?? null
+  }
+
+  get suggestions (): Video[] {
+    return this.$store.state.videos.slice(0, 6)
+  }
 }
 </script>
 

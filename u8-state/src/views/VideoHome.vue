@@ -12,11 +12,13 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import VideoCard from './VideoCard.vue'
+import { mapState } from 'vuex'
 
-@Component({ components: { VideoCard }})
-export default class VideoHome extends Vue { 
-  videos: []
-}
+@Component({
+  components: { VideoCard },
+  computed: mapState(['videos'])
+})
+export default class VideoHome extends Vue { }
 </script>
 
 <style scoped>

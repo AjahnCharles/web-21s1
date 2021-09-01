@@ -9,7 +9,9 @@
         <router-link
           :to="{ name: 'VideoPlaylist', params: { slug: 'watch-later' } }"
         >
-          <img src="/images/icons/playlist-play.png" alt="Watch Later" />0
+          <img src="/images/icons/playlist-play.png" alt="Watch Later" />{{
+            $store.getters.watchLaterCount
+          }}
         </router-link>
       </div>
     </div>

@@ -15,6 +15,12 @@
       src="/images/icons/playlist-plus.png"
       alt="Add to watch later"
     />
+    <img
+      @click.prevent="removeFromWatchLater(video.id)"
+      class="watch-later-remove"
+      src="/images/icons/playlist-remove.png"
+      alt="Add to watch later"
+    />
   </router-link>
 </template>
 
@@ -23,7 +29,15 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 
 @Component({ props: ['video'] })
-export default class VideoCard extends Vue { }
+export default class VideoCard extends Vue {
+  addToWatchLater (videoId: string): void {
+    this.$store.dispatch('addToWatchLater', videoId)
+  }
+
+  removeFromWatchLater (videoId: string): void {
+    this.$store.dispatch('removeFromWatchLater', videoId)
+  }
+}
 </script>
 
 <style scoped>
@@ -70,12 +84,21 @@ export default class VideoCard extends Vue { }
   max-height: 2.6em;
 }
 
-.watch-later {
+.watch-later,
+.watch-later-remove {
   position: absolute;
   height: 2rem;
-  top: 0;
-  right: 0;
   padding: 0.5rem;
   filter: invert();
+}
+
+.watch-later {
+  top: 0;
+  right: 0;
+}
+
+.watch-later-remove {
+  top: 2rem;
+  right: 0;
 }
 </style>
