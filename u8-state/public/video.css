@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin-bottom: 4px;
+}
+
+a,
+a:visited {
+  color: #444444;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav {
+  padding: 12px 16px 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.nav a:hover {
+  text-decoration: none;
+}
+
+.nav .brand {
+  float: left;
+  font-size: 2rem;
+}
+
+.nav div {
+  color: #444444;
+  text-align: right;
+}
+
+.nav div a,
+.nav div img {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  height: 1.5rem;
+  vertical-align: middle;
+}
+
+.content {
+  padding: 8px;
+}
+
+.stats {
+  font-size: 0.8rem;
+  color: #999999;
+}
