@@ -7,3 +7,13 @@ export interface Video {
   dateRelative: string
   duration: string
 }
+
+export interface Book {
+  title: string
+  description:string
+  isbn13: string
+  pages: number
+  authors: string[]
+  rating: number
+  price: number
+}
