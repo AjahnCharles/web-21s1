@@ -1,4 +1,5 @@
 # Secrets
+firebase-config*.json
 service-account*.json
 
 # Deps
