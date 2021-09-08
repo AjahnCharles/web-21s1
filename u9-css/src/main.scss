@@ -2,12 +2,16 @@
 @import "~bulma/sass/utilities/_all";
 
 // Set your colors
-$primary: #8c67ef;
+$primary: #42b883;
 $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
+$dark: #35495e;
+$dark-invert: findColorInvert($dark);
 $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);
+$pancake: #123456;
+$pancake-invert: findColorInvert($pancake);
 
 // Lists and maps
 $custom-colors: null !default;
@@ -67,6 +71,14 @@ $colors: mergeColorMaps(
             $danger-invert,
             $danger-light,
             $danger-dark,
+        ),
+        "twitter": (
+            $twitter,
+            $twitter-invert
+        ),
+        "pancake": (
+            $pancake,
+            $pancake-invert
         ),
     ),
     $custom-colors
