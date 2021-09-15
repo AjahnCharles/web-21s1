@@ -1,0 +1,45 @@
+name: Build-Lint
+
+on:
+  pull_request:
+
+jobs:
+  Main:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 'Setup: Node'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: 'Setup: Git checkout'
+        uses: actions/checkout@v2
+
+      - name: 'Setup: Extract version'
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: 'Setup: Copy cached deps'
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: 'Setup: Install new deps'
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: cd u10-hosting && yarn --frozen-lockfile
+
+      - name: 'Build: functions'
+        run: cd u10-hosting/functions && yarn build
+
+      - name: 'Build: hosting'
+        run: cd u10-hosting/hosting && yarn build
+        env:
+          NODE_ENV: production
+          VUE_APP_FIREBASE_API_KEY: ${{ secrets.PRODUCTION_FIREBASE_API_KEY }}
+          VUE_APP_BUILD_VERSION: ${{ steps.package-version.outputs.current-version }}
+
+      - name: 'Lint'
+        run: cd u10-hosting && yarn workspaces run lint
