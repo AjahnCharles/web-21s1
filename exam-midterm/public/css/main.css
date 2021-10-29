@@ -1,0 +1,172 @@
+/* Base */
+:root {
+  --header-icon-height: 48px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+
+a,
+a:visited,
+a:active,
+a:hover {
+  color: #00c;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+}
+
+th {
+  text-align: left;
+  background-color: #00c;
+  color: #fff;
+  font-weight: normal;
+}
+
+th,
+td {
+  border-bottom: 1px solid #00c;
+}
+
+label,
+input,
+button,
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 20rem;
+}
+
+label {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+input[type='number'] {
+  width: 5rem;
+}
+
+textarea {
+  height: 5rem;
+}
+
+label {
+  margin-bottom: 0.15rem;
+}
+
+label:not(:first-child),
+button {
+  margin-top: 0.75rem;
+}
+
+/* Layout */
+header {
+  background-color: #09f;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header a,
+header a:visited,
+header a:active,
+header a:hover {
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+
+header img,
+header h1 {
+  height: var(--header-icon-height);
+  line-height: var(--header-icon-height);
+  font-size: 2.15rem;
+  margin: 0;
+  padding: 1rem 0rem 1rem 1rem;
+}
+
+header img {
+  filter: invert(1);
+}
+
+header h1 {
+  flex-grow: 1;
+}
+
+main {
+  padding: 2rem;
+}
+
+main ul {
+  list-style-type: square;
+}
+
+main ul li {
+  line-height: 1.5rem;
+}
+
+main ul li::marker {
+  font-size: 1.75rem;
+}
+
+footer {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 2rem;
+  background-color: #039;
+  color: #fff;
+}
+
+footer a,
+footer a:visited,
+footer a:active,
+footer a:hover {
+  color: #fff;
+}
+
+.footer-questions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 1.5rem;
+}
+
+.footer-questions h2 {
+  font-size: 1rem;
+  font-weight: 200;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-questions ol {
+  margin: 0 0 0 0.85rem;
+  padding: 0;
+}
